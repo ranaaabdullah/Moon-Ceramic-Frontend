@@ -6,7 +6,7 @@ import Button from "../Button";
 const Banner = () => {
   return (
     <div className="relative ">
-      <div className="w-screen">
+      <div className="">
         <img className="w-screen object-contain" src={BannerPic} alt=""></img>
       </div>
       <div className=" absolute lg:top-0 h-full lg:left-40 flex flex-col  w-96 text-center justify-center  gap-5 items-center bg-brown-100 p-5">

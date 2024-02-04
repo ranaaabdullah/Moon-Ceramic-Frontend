@@ -5,7 +5,7 @@ import image3 from "../../assets/image3.png";
 import Header from "../../components/Header";
 import Banner from "../../components/home/Banner";
 import Section1 from "../../components/home/Section1";
-import BannerCard from "../../components/home/BannerCard";
+import BannerCard from "../../components/BannerCard";
 import BestSellers from "../../components/home/BestSellers";
 import Image1 from "../../assets/sellers/image1.png";
 import Image2 from "../../assets/sellers/image2.png";

@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Button";
+import Button from "./Button";
 
 const BannerCard = ({
   title,
@@ -18,13 +18,12 @@ const BannerCard = ({
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 px-24 ">
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:mx-28">
         {swap ? (
           <>
-            <div>
-              <img className="" src={img} alt="" />
-            </div>
-            <div className="flex flex-col justsify-center  items-center  text-center gap-8 bg-primary-200  py-14">
+            <img className="w-[645px]" src={img} alt="" />
+
+            <div className="flex flex-col justify-center  items-center  text-center gap-8 bg-primary-200  ">
               <h3 className=" text-4xl uppercase font-semibold">{title}</h3>
               <p className="text-primary-100 ">{desc}</p>
 
@@ -33,7 +32,7 @@ const BannerCard = ({
           </>
         ) : (
           <>
-            <div className="flex flex-col justsify-center  items-center  text-center gap-8 bg-primary-200  py-14">
+            <div className="flex flex-col justify-center  items-center  text-center gap-8 bg-primary-200  py-14">
               <h2 className="text-brown-100 font-semibold  uppercase tracking-widest text-lg">
                 {heading2}
               </h2>
@@ -42,9 +41,12 @@ const BannerCard = ({
 
               <Button bg={"none"}>{button}</Button>
             </div>
-            <div>
-              <img className="h-[400px] w-[600px]" src={img} alt="" />
-            </div>
+
+            <img
+              className="h-[400px] w-[645px] mix-blend-color-burn "
+              src={img}
+              alt=""
+            />
           </>
         )}
       </div>
