@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import logo from "../assets/home/logo.png";
 import search from "../assets/home/Search.png";
 import avatar from "../assets/home/Avatar.png";
@@ -43,7 +43,7 @@ const Header = () => {
     },
   ];
   return (
-    <div className="container bg-white text-primary-100 px-3 py-5  flex justify-around items-center">
+    <div className="container border-b-2 bg-white text-primary-100 px-3 py-5  flex justify-around items-center">
       <img src={logo} alt="" />
       <div className="flex  gap-8">
         {links.map((item) => {
@@ -63,4 +63,4 @@ const Header = () => {
   );
 };
 
-export default Header
+export default Header;

@@ -7,7 +7,7 @@ const Head = () => {
         <h3 className="lg:text-4xl text-3xl uppercase text-center tracking-wider">
           About Moon
         </h3>
-        <p className="text-primary-300 text-center lg:max-w-96">
+        <p className="text-primary-300 text-center lg:max-w-[430px]">
           Moon's handmade ceramic products have been around since 1650, let's
           explore our journey
         </p>

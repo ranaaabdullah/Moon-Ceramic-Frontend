@@ -4,12 +4,16 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { Home } from "./pages";
 import About from "./pages/about/About";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div className="">
-      <Home />
-      {/* <About /> */}
+      <Header />
+      {/* <Home /> */}
+      <About />
+      <Footer />
     </div>
   );
 }

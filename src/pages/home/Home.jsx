@@ -98,7 +98,7 @@ const Home = () => {
   ];
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Banner />
       <Section1 />
       <BannerCard
@@ -138,7 +138,7 @@ const Home = () => {
         button={"learn more "}
       />
       <EmailCard />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
