@@ -11,8 +11,8 @@ function App() {
   return (
     <div className="">
       <Header />
-      {/* <Home /> */}
-      <About />
+      <Home />
+      {/* <About /> */}
       <Footer />
     </div>
   );

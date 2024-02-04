@@ -28,43 +28,43 @@ const Home = () => {
     },
     {
       img: Image2,
-      title: "Small Ecru Ceramic Compote",
+      title: "Warrick White Vase 14",
       price: "$49.00",
       desc: "Lorem ipsum dolor sit amet conse bolli tetur adipiscing elit.",
     },
     {
       img: Image3,
-      title: "Small Ecru Ceramic Compote",
+      title: "Porcelain Dinner Plate",
       price: "$49.00",
       desc: "Lorem ipsum dolor sit amet conse bolli tetur adipiscing elit.",
     },
     {
       img: Image4,
-      title: "Small Ecru Ceramic Compote",
+      title: "Warrick White Vase 20",
       price: "$49.00",
       desc: "Lorem ipsum dolor sit amet conse bolli tetur adipiscing elit.",
     },
     {
       img: Image1,
-      title: "Small Ecru Ceramic Compote",
+      title: "Rounded Dual Handled Vase",
       price: "$49.00",
       desc: "Lorem ipsum dolor sit amet conse bolli tetur adipiscing elit.",
     },
     {
       img: Image2,
-      title: "Small Ecru Ceramic Compote",
+      title: "Marin White Dinner Plate",
       price: "$49.00",
       desc: "Lorem ipsum dolor sit amet conse bolli tetur adipiscing elit.",
     },
     {
       img: Image3,
-      title: "Small Ecru Ceramic Compote",
+      title: "Tall Cream Ceramic Vase",
       price: "$49.00",
       desc: "Lorem ipsum dolor sit amet conse bolli tetur adipiscing elit.",
     },
     {
       img: Image4,
-      title: "Small Ecru Ceramic Compote",
+      title: "Luana Bowl",
       price: "$49.00",
       desc: "Lorem ipsum dolor sit amet conse bolli tetur adipiscing elit.",
     },
@@ -102,7 +102,7 @@ const Home = () => {
       <Banner />
       <Section1 />
       <BannerCard
-        title={" Up to 40% off our Christmas collection nhdhdhdhh"}
+        title={" Up to 40% off our Christmas collection"}
         desc={
           "Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit hasellus mollis sit aliquam sit nullam neque ultrices."
         }

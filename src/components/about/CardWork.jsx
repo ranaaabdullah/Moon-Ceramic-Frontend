@@ -22,7 +22,7 @@ const CardWork = () => {
         <div>
           <img className="w-[600px] object-contain" src={image} alt="" />
         </div>
-        <div className="py-12 lg:pe-40">
+        <div className="py-12 p-3 lg:pe-40">
           <h3 className="text-3xl tracking-widest uppercase py-5">
             How we works
           </h3>

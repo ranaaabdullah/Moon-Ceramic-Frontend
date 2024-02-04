@@ -92,10 +92,16 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex text-secondary-200 items-center justify-center p-2">
-          <h2>
-            Copyright © 2023 Moon| All Rights Reserved | Terms and Conditions |
-            Privacy Policy
+        <div className="flex text-secondary-200 items-center justify-center pb-5 p-2">
+          <h2 className="text-secondary-200">
+            Copyright © 2023 Moon| All Rights Reserved |
+            <span className="underline mx-1 text-primary-500">
+              Terms and Conditions{" "}
+            </span>
+            |
+            <span className="underline mx-1 text-primary-500">
+              Privacy Policy
+            </span>
           </h2>
         </div>
       </div>

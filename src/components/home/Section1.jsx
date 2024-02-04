@@ -5,10 +5,10 @@ import image4 from "../../assets/section1/image4.png";
 
 const Section1 = () => {
   return (
-    <div className="grid bg-white mt-4 px-16 border-black py-5 justify-items-center grid-cols-2 lg:grid-cols-4 ">
+    <div className="grid bg-white mt-4 lg:px-32 border-black py-5 justify-items-center grid-cols-1 lg:grid-cols-4 ">
       <div className="flex flex-col  gap-4 items-center text-center">
         <img src={image} alt="" />
-        <h2 className=" text-lg font-bold uppercase">TableWare</h2>
+        <h2 className=" lg:text-lg font-bold uppercase">TableWare</h2>
       </div>{" "}
       <div className="flex flex-col gap-4 items-center text-center">
         <img src={image2} alt="" />
