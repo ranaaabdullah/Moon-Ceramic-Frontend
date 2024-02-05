@@ -1,7 +1,7 @@
 import React from "react";
-import Button from "./Button";
+import Button from "../Button";
 
-const BannerCard = ({
+const   BannerCard = ({
   title,
   desc,
   img,

@@ -5,7 +5,7 @@ import image3 from "../../assets/image3.png";
 import Header from "../../components/Header";
 import Banner from "../../components/home/Banner";
 import Section1 from "../../components/home/Section1";
-import BannerCard from "../../components/BannerCard";
+import BannerCard from "../../components/home/BannerCard";
 import BestSellers from "../../components/home/BestSellers";
 import Image1 from "../../assets/sellers/image1.png";
 import Image2 from "../../assets/sellers/image2.png";
@@ -126,17 +126,21 @@ const Home = () => {
         img={image3}
         button={"learn more "}
       />
-      <BestSellers data={data1} title={"Discover new arrivals"} />
-      <BannerCard
-        heading2={"TableWare"}
-        heading={"our blogs"}
-        title={" Made in viet Nam since 1450"}
-        desc={
-          " Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit hasellus mollis sit aliquam sit nullam neque ultrices."
-        }
-        img={image3}
-        button={"learn more "}
-      />
+      <div>
+        <BestSellers data={data1} title={"Discover new arrivals"} />
+      </div>
+      <div>
+        <BannerCard
+          heading2={"TableWare"}
+          heading={"our blogs"}
+          title={" Made in viet Nam since 1450"}
+          desc={
+            " Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit hasellus mollis sit aliquam sit nullam neque ultrices."
+          }
+          img={image3}
+          button={"learn more "}
+        />
+      </div>
       <EmailCard />
       {/* <Footer /> */}
     </>

@@ -6,14 +6,16 @@ import { Home } from "./pages";
 import About from "./pages/about/About";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Contact from "./pages/contact/Contact";
 
 function App() {
   return (
     <div className="">
-      <Header />
-      <Home />
+      {/* <Header /> */}
+      {/* <Home /> */}
       {/* <About /> */}
-      <Footer />
+      <Contact />
+      {/* <Footer /> */}
     </div>
   );
 }
