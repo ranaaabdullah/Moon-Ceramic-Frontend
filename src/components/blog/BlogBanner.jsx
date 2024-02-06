@@ -4,7 +4,7 @@ import image from "../../assets/blog/BannerImage.png";
 const BlogBanner = () => {
   return (
     <div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 lg:py-14 ">
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:pb-14 ">
         <div>
           <img className="lg:w-[760px]" src={image} alt="" />
         </div>

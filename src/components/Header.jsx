@@ -43,7 +43,7 @@ const Header = () => {
     },
   ];
   return (
-    <div className="container border-b-2 bg-white text-primary-100 px-3 py-5  flex justify-around items-center">
+    <div className="container border-b-2 bg-white text-primary-100 px-3 py-5 flex flex-col lg:flex-row justify-center lg:justify-around items-center">
       <img src={logo} alt="" />
       <div className="flex  gap-8">
         {links.map((item) => {

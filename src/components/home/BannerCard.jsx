@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Button";
 
-const   BannerCard = ({
+const BannerCard = ({
   title,
   desc,
   img,
@@ -18,7 +18,7 @@ const   BannerCard = ({
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 lg:mx-40">
+      <div className="grid grid-cols-1 lg:grid-cols-2 ">
         {swap ? (
           <>
             <div>

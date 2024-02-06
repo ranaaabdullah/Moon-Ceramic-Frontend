@@ -9,10 +9,10 @@ const EmailCard = () => {
         For news, collections & more
       </h3>
       <input
-        className="border-b-2 border-black lg:w-96 placeholder:text-center placeholder:text-primary-300"
+        className="border-b-2 py-4 border-black lg:w-96 placeholder:text-center placeholder:text-primary-300"
         type="text"
         placeholder="Enter your email address"
-      ></input>
+      />
       <Button border={true}>sign up</Button>
     </div>
   );

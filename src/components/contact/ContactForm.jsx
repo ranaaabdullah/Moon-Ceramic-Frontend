@@ -1,5 +1,5 @@
 import React from "react";
-import InputText from "../inputField/InputText";
+import InputText from "../InputText";
 import Button from "../Button";
 import { FaArrowRight } from "react-icons/fa";
 

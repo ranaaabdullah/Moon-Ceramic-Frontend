@@ -12,7 +12,7 @@ const Card = ({ item, index }) => {
         {/* <button className="uppercase p-2  mt-16 px-16 border-black border-2">
         <h2 className="font-semibold text-sm">Add to card</h2>
       </button> */}
-        <Button border={true} className={"lg:!px-12"}>
+        <Button border={true} className={"lg:!px-20"}>
           <h2 className="font-semibold text-sm">Add to card</h2>
         </Button>
       </div>

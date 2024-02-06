@@ -8,16 +8,18 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Contact from "./pages/contact/Contact";
 import Blog from "./pages/blog/Blog";
+import Shop from "./pages/shop/Shop";
 
 function App() {
   return (
     <div className="">
-      {/* <Header /> */}
-      {/* <Home /> */}
+      <Header />
+      {/* <Home />   */}
       {/* <About /> */}
       {/* <Contact /> */}
-      <Blog />
-      {/* <Footer /> */}
+      {/* <Blog /> */}
+      <Shop />
+      <Footer />
     </div>
   );
 }
