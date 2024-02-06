@@ -67,8 +67,8 @@ const Shop = () => {
   ];
   return (
     <div className="lg:px-36 py-14">
-      <div className="flex items-center justify-between">
-        <p>Showing 120 items </p>
+      <div className="flex  lg:flex-row flex-col items-center justify-between">
+        <p className="fonts">Showing 120 items </p>
 
         <div className="flex items-center">
           <p className="">Sort by:</p>
@@ -81,11 +81,11 @@ const Shop = () => {
           </select>
         </div>
       </div>
-      <div className="flex  items-start gap-5 py-4">
+      <div className="flex lg:flex-row flex-col   items-start gap-5 py-4">
         <FilterRow />
         <ProductList data={data} />
       </div>
-      <div className="flex items-center justify-end">
+      <div className="flex items-center justify-center lg:justify-end">
         <Pagination />
       </div>
     </div>

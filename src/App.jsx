@@ -13,13 +13,13 @@ import Shop from "./pages/shop/Shop";
 function App() {
   return (
     <div className="">
-      <Header />
+      {/* <Header /> */}
       {/* <Home />   */}
       {/* <About /> */}
       {/* <Contact /> */}
       {/* <Blog /> */}
       <Shop />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
