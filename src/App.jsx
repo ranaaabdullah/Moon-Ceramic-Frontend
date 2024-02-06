@@ -7,6 +7,7 @@ import About from "./pages/about/About";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Contact from "./pages/contact/Contact";
+import Blog from "./pages/blog/Blog";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       {/* <Header /> */}
       {/* <Home /> */}
       {/* <About /> */}
-      <Contact />
+      {/* <Contact /> */}
+      <Blog />
       {/* <Footer /> */}
     </div>
   );

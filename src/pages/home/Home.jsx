@@ -100,39 +100,27 @@ const Home = () => {
     <>
       {/* <Header /> */}
       <Banner />
-      <Section1 />
-      <BannerCard
-        title={" Up to 40% off our Christmas collection"}
-        desc={
-          "Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit hasellus mollis sit aliquam sit nullam neque ultrices."
-        }
-        img={image}
-      />
-      <BestSellers data={data} title={"best sellers"} />
-      <BannerCard
-        title={" Made in viet Nam since 1450"}
-        desc={
-          " Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit hasellus mollis sit aliquam sit nullam neque ultrices."
-        }
-        img={image2}
-        button={"learn more "}
-      />
-      <BannerCard
-        swap={true}
-        title={" Made in viet Nam since 1450"}
-        desc={
-          " Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit hasellus mollis sit aliquam sit nullam neque ultrices."
-        }
-        img={image3}
-        button={"learn more "}
-      />
-      <div>
-        <BestSellers data={data1} title={"Discover new arrivals"} />
-      </div>
-      <div>
+      <div className="lg:mx-40">
+        <Section1 />
         <BannerCard
-          heading2={"TableWare"}
-          heading={"our blogs"}
+          button={"shop now"}
+          title={" Up to 40% off our Christmas collection"}
+          desc={
+            "Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit hasellus mollis sit aliquam sit nullam neque ultrices."
+          }
+          img={image}
+        />
+        <BestSellers data={data} title={"best sellers"} />
+        <BannerCard
+          title={" Made in viet Nam since 1450"}
+          desc={
+            " Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit hasellus mollis sit aliquam sit nullam neque ultrices."
+          }
+          img={image2}
+          button={"learn more "}
+        />
+        <BannerCard
+          swap={true}
           title={" Made in viet Nam since 1450"}
           desc={
             " Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit hasellus mollis sit aliquam sit nullam neque ultrices."
@@ -140,8 +128,23 @@ const Home = () => {
           img={image3}
           button={"learn more "}
         />
+        <div>
+          <BestSellers data={data1} title={"Discover new arrivals"} />
+        </div>
+        <div>
+          <BannerCard
+            heading2={"TableWare"}
+            heading={"our blogs"}
+            title={" Made in viet Nam since 1450"}
+            desc={
+              " Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit hasellus mollis sit aliquam sit nullam neque ultrices."
+            }
+            img={image3}
+            button={"learn more "}
+          />
+        </div>
+        <EmailCard />
       </div>
-      <EmailCard />
       {/* <Footer /> */}
     </>
   );
