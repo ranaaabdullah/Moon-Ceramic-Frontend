@@ -13,7 +13,7 @@ const BlogBanner = () => {
           <h3 className="lg:text-4xl text-2xl uppercase font-semibold">
             What’s in a Garden set?
           </h3>
-          <p className="text-primary-100 px-20">
+          <p className="text-primary-100 p-3 lg:px-20">
             "Maecenas sem eros, rutrum vitae risus eget, vulputate aliquam nisi.
             dolor sit amet consectetur adipiscing eli mattis sit phasellus
             mollis sit aliquam sit

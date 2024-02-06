@@ -6,7 +6,7 @@ const BlogCard = ({ image, title, desc }) => {
     <div>
       <div className="flex flex-col py-4 ">
         <div>
-          <img className="" src={image} alt="" />
+          <img className="w-full" src={image} alt="" />
         </div>
         <div className="flex items-center gap-2 py-6">
           <img src={avatar} alt="" />
