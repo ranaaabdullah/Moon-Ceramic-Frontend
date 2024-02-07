@@ -10,7 +10,8 @@ import Contact from "./pages/contact/Contact";
 import Blog from "./pages/blog/Blog";
 import Shop from "./pages/shop/Shop";
 import ProductDetail from "./pages/productDetails/ProductDetails";
-import './styles.css'
+import "./styles.css";
+import Cart from "./pages/cart/Cart";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
       {/* <Contact /> */}
       {/* <Blog /> */}
       {/* <Shop /> */}
-      <ProductDetail />
+      {/* <ProductDetail /> */}
+      <Cart />
       {/* <Footer /> */}
     </div>
   );

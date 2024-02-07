@@ -14,7 +14,7 @@ const ContactForm = () => {
     <div className="lg:px-64 px-3 pb-14 ">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {inputField.map((input) => (
-          <InputText data={input} />
+          <InputText  label={input.label} placeholder={input.placeHodler} />
         ))}
       </div>
       <div className="grid grid-cols-1">

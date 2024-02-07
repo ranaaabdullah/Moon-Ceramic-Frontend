@@ -1,20 +1,21 @@
 import React from 'react'
 
-const InputText = ({data}) => {
+const InputText = ({label,placeholder}) => {
   return (
     <div>
       <div>
-        <label
+        {
+          label && 
+          <label
           className="block text-primary-100 text-sm font-bold mb-2"
-          htmlFor={data.key}
-        >
-          {data.label}
+          >
+          {label}
         </label>
+        }
         <input
           className=" border-2 border-primary-100  w-full py-4 px-3 text-primary-100 leading-tight focus:outline-none focus:shadow-outline"
-          id={data.key}
           type="text"
-          placeholder={data.placeHodler}
+          placeholder={placeholder}
         />
       </div>
     </div>

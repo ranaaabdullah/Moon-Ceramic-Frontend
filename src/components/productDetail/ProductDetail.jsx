@@ -1,6 +1,13 @@
-import React from 'react'
-
+import React from "react";
+import Button from "../../components/Button";
+import { CiHeart } from "react-icons/ci";
+import { FaPlus } from "react-icons/fa6";
+import logo1 from "../../assets/ProductDetail/Facebook.png";
+import logo2 from "../../assets/ProductDetail/Twitter.png";
+import logo3 from "../../assets/ProductDetail/Instagram.png";
+import logo4 from "../../assets/ProductDetail/Linkedin.png";
 const ProductDetail = () => {
+  
   return (
     <div>
       <div className="p-2 px-10 flex flex-col gap-4 ">
@@ -205,6 +212,6 @@ const ProductDetail = () => {
       </div>
     </div>
   );
-}
+};
 
-export default ProductDetail
+export default ProductDetail;
