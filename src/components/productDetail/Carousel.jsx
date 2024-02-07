@@ -11,8 +11,8 @@ import "swiper/css/thumbs";
 // import required modules
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
-export default function App() {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+export default function Carousel({ data }) {
+  const [thumbsSwiper, setThumbsSwiper] = useState();
 
   return (
     <>
@@ -23,14 +23,20 @@ export default function App() {
         }}
         spaceBetween={10}
         navigation={true}
-        thumbs={{ swiper: thumbsSwiper }}
+        thumbs={{
+          swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+        }}
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2"
       >
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
+        {data.map((item) => {
+          return (
+            <SwiperSlide>
+              <img src={item.image} />
+            </SwiperSlide>
+          );
+        })}
+        {/* <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
         </SwiperSlide>
         <SwiperSlide>
@@ -56,9 +62,9 @@ export default function App() {
         </SwiperSlide>
         <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
-      {/* <Swiper
+      <Swiper
         onSwiper={setThumbsSwiper}
         spaceBetween={10}
         slidesPerView={4}
@@ -67,7 +73,14 @@ export default function App() {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper"
       >
-        <SwiperSlide>
+        {data.map((item) => {
+          return (
+            <SwiperSlide>
+              <img src={item.image} />
+            </SwiperSlide>
+          );
+        })}
+        {/* <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
         </SwiperSlide>
         <SwiperSlide>
@@ -96,8 +109,8 @@ export default function App() {
         </SwiperSlide>
         <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-        </SwiperSlide>
-      </Swiper> */}
+        </SwiperSlide> */}
+      </Swiper>
     </>
   );
 }

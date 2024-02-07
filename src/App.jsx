@@ -16,14 +16,14 @@ import Cart from "./pages/cart/Cart";
 function App() {
   return (
     <div className="">
-      {/* <Header /> */}
+      <Header />
       {/* <Home />   */}
       {/* <About /> */}
       {/* <Contact /> */}
       {/* <Blog /> */}
       {/* <Shop /> */}
-      {/* <ProductDetail /> */}
-      <Cart />
+      <ProductDetail />
+      {/* <Cart /> */}
       {/* <Footer /> */}
     </div>
   );
