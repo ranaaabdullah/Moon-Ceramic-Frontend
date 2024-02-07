@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 import Contact from "./pages/contact/Contact";
 import Blog from "./pages/blog/Blog";
 import Shop from "./pages/shop/Shop";
+import ProductDetail from "./pages/productDetails/ProductDetails";
+import './styles.css'
 
 function App() {
   return (
@@ -18,7 +20,8 @@ function App() {
       {/* <About /> */}
       {/* <Contact /> */}
       {/* <Blog /> */}
-      <Shop />
+      {/* <Shop /> */}
+      <ProductDetail />
       {/* <Footer /> */}
     </div>
   );
