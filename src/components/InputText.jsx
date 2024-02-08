@@ -1,25 +1,28 @@
-import React from 'react'
+import clsx from "clsx";
+import React from "react";
 
-const InputText = ({label,placeholder}) => {
+const InputText = ({ label, placeholder, className }) => {
   return (
     <div>
       <div>
-        {
-          label && 
-          <label
-          className="block text-primary-100 text-sm font-bold mb-2"
-          >
-          {label}
-        </label>
-        }
+        {label && (
+          <label className="block text-primary-100 text-sm font-bold mb-2">
+            {label}
+          </label>
+        )}
         <input
-          className=" border-2 border-primary-100  w-full py-4 px-3 text-primary-100 leading-tight focus:outline-none focus:shadow-outline"
+          // className=" border-2 border-primary-100  w-full py-4 px-3 text-primary-100 leading-tight focus:outline-none focus:shadow-outline"
+          className={clsx(
+            ` border-2 border-primary-100  w-full py-4 px-3 text-primary-100 leading-tight focus:outline-none focus:shadow-outline`,
+
+            className
+          )}
           type="text"
           placeholder={placeholder}
         />
       </div>
     </div>
   );
-}
+};
 
-export default InputText
+export default InputText;

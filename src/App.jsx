@@ -12,6 +12,7 @@ import Shop from "./pages/shop/Shop";
 import ProductDetail from "./pages/productDetails/ProductDetails";
 import "./styles.css";
 import Cart from "./pages/cart/Cart";
+import Login from "./pages/login/Login";
 
 function App() {
   return (
@@ -22,9 +23,11 @@ function App() {
       {/* <Contact /> */}
       {/* <Blog /> */}
       {/* <Shop /> */}
-      <ProductDetail />
+      {/* <ProductDetail /> */}
+
+      <Login/>
       {/* <Cart /> */}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
