@@ -35,7 +35,7 @@ const BillBox = () => {
         <div>
           <div className="flex items-center  pt-5  text-xl font-semibold  justify-between ">
             <p className="">Total</p>
-            <p>$490.00</p>
+            <p>$500.00</p>
           </div>
         </div>
 
