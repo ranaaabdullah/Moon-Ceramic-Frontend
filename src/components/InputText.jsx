@@ -6,14 +6,14 @@ const InputText = ({ label, placeholder, className }) => {
     <div>
       <div>
         {label && (
-          <label className="block text-primary-100 text-sm font-bold mb-2">
+          <label className="block text-primary-100 capitalize text-sm font-bold mb-2">
             {label}
           </label>
         )}
         <input
           // className=" border-2 border-primary-100  w-full py-4 px-3 text-primary-100 leading-tight focus:outline-none focus:shadow-outline"
           className={clsx(
-            ` border-2 border-primary-100  w-full py-4 px-3 text-primary-100 leading-tight focus:outline-none focus:shadow-outline`,
+            ` border-2 border-primary-100  w-full py-4 px-3 text-primary-100  leading-tight focus:outline-none focus:shadow-outline`,
 
             className
           )}

@@ -13,6 +13,7 @@ import ProductDetail from "./pages/productDetails/ProductDetails";
 import "./styles.css";
 import Cart from "./pages/cart/Cart";
 import Login from "./pages/login/Login";
+import SignUp from "./pages/signUp/SignUp";
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
       {/* <Shop /> */}
       {/* <ProductDetail /> */}
 
-      <Login/>
+      {/* <Login /> */}
+      <SignUp />
       {/* <Cart /> */}
       <Footer />
     </div>

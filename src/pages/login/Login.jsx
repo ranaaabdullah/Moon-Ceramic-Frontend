@@ -12,7 +12,7 @@ const Login = () => {
           <img src={loginImage} className="rounded" alt="" />
         </div>
         <div className="flex justify-center items-center gap-3  flex-col">
-          <h3 className="font-bold text-4xl ">Login</h3>
+          <h3 className="font-bold text-4xl tracking-widest ">Login</h3>
           <InputText
             placeholder={"Enter Email Address"}
             label={"Email Address"}
