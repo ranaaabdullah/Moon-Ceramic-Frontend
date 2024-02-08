@@ -2,8 +2,10 @@ import React from "react";
 import BannerPic from "../../assets/home/banner.png";
 import icon from "../../assets/home/Icon.png";
 import Button from "../Button";
+import { useNavigate } from "react-router-dom";
 
 const Banner = () => {
+  const navigate = useNavigate();
   return (
     <div className="lg:relative ">
       <div className="">
@@ -20,7 +22,11 @@ const Banner = () => {
           BAT TRANG DINNER SET
         </h3>
 
-        <Button className={"px-16"} text={"brown"}>
+        <Button
+          onClick={() => navigate("/shop")}
+          className={"px-16"}
+          text={"brown"}
+        >
           shop now
         </Button>
       </div>

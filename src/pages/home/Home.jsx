@@ -17,8 +17,10 @@ import image33 from "../../assets/NewArrival/image3.png";
 import image44 from "../../assets/NewArrival/image4.png";
 import EmailCard from "../../components/home/EmailCard";
 import Footer from "../../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   const data = [
     {
       img: Image1,
@@ -109,6 +111,7 @@ const Home = () => {
             "Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit hasellus mollis sit aliquam sit nullam neque ultrices."
           }
           img={image}
+          onClick={() => navigate("/shop")}
         />
         <BestSellers data={data} title={"best sellers"} />
         <BannerCard
@@ -118,6 +121,7 @@ const Home = () => {
           }
           img={image2}
           button={"learn more "}
+          onClick={() => navigate("/blog")}
         />
         <BannerCard
           swap={true}
@@ -127,6 +131,7 @@ const Home = () => {
           }
           img={image3}
           button={"learn more "}
+          onClick={() => navigate("/blog")}
         />
         <div>
           <BestSellers data={data1} title={"Discover new arrivals"} />
@@ -141,6 +146,7 @@ const Home = () => {
             }
             img={image3}
             button={"learn more "}
+            onClick={() => navigate("/blog")}
           />
         </div>
         <EmailCard />

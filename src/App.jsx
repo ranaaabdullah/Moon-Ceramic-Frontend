@@ -1,34 +1,46 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import { Home } from "./pages";
-import About from "./pages/about/About";
+
+import { Suspense } from "react";
+import {
+  About,
+  Blog,
+  Cart,
+  Checkout,
+  Contact,
+  Home,
+  Login,
+  ProductDetails,
+  Shop,
+  SignUp,
+} from "./pages";
+import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Contact from "./pages/contact/Contact";
-import Blog from "./pages/blog/Blog";
-import Shop from "./pages/shop/Shop";
-import ProductDetail from "./pages/productDetails/ProductDetails";
-import "./styles.css";
-import Cart from "./pages/cart/Cart";
-import Login from "./pages/login/Login";
-import SignUp from "./pages/signUp/SignUp";
 
 function App() {
   return (
     <div className="">
       <Header />
-      {/* <Home />   */}
-      {/* <About /> */}
-      {/* <Contact /> */}
-      {/* <Blog /> */}
-      {/* <Shop /> */}
-      {/* <ProductDetail /> */}
-
-      {/* <Login /> */}
-      <SignUp />
-      {/* <Cart /> */}
+      <Suspense
+        fallback={
+          <div className="container flex items-center justify-center">
+            Loading...
+          </div>
+        }
+      >
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/productDetail" element={<ProductDetails />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signUp" element={<SignUp />} />
+        </Routes>
+      </Suspense>
       <Footer />
     </div>
   );

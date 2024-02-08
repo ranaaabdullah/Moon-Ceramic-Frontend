@@ -4,6 +4,7 @@ import search from "../assets/home/Search.png";
 import avatar from "../assets/home/Avatar.png";
 import heart from "../assets/home/Heart.png";
 import cart from "../assets/home/cart.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const links = [
@@ -13,15 +14,15 @@ const Header = () => {
     },
     {
       name: "Shop",
-      href: "/",
+      href: "/shop",
     },
     {
       name: "About",
-      href: "/",
+      href: "/about",
     },
     {
       name: "Contact",
-      href: "/",
+      href: "/contact",
     },
   ];
   const icons = [
@@ -39,12 +40,15 @@ const Header = () => {
     },
     {
       img: cart,
-      href: "/",
+      href: "/cart",
     },
   ];
   return (
     <div className="container border-b-2 bg-white text-primary-100 px-3 py-5 flex flex-col lg:flex-row justify-center lg:justify-around items-center">
+    <Link to={"/"}>
       <img src={logo} alt="" />
+    </Link>
+    
       <div className="flex  gap-8">
         {links.map((item) => {
           return <a href={item.href}>{item.name}</a>;
@@ -53,9 +57,9 @@ const Header = () => {
       <div className="flex gap-4 ">
         {icons.map((item) => {
           return (
-            <a href={item.href}>
+            <Link to={item.href}>
               <img src={item.img} alt=""></img>
-            </a>
+            </Link>
           );
         })}
       </div>

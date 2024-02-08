@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React from "react";
 
-const InputText = ({ label, placeholder, className }) => {
+const InputText = ({ label, placeholder, className, type }) => {
   return (
     <div>
       <div>
@@ -17,7 +17,13 @@ const InputText = ({ label, placeholder, className }) => {
 
             className
           )}
-          type="text"
+          type={
+            type === "number"
+              ? "number"
+              : type === "password"
+              ? "password"
+              : "text"
+          }
           placeholder={placeholder}
         />
       </div>

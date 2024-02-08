@@ -2,9 +2,10 @@ import clsx from "clsx";
 import React from "react";
 import { Children } from "react";
 
-const Button = ({ children, className, text, bg, border, borderWhite }) => {
+const Button = ({ children, className, text, bg, border, borderWhite ,onClick}) => {
   return (
     <button
+      onClick={onClick}
       className={clsx(
         ` uppercase tracking-wider  text-nowrap inline-flex items-center text-black font-semibold py-2  px-5`,
         {

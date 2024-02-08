@@ -8,7 +8,7 @@ const SignUp = () => {
   return (
     <div>
       <div className="grid grid-cols-1 lg:grid-cols-2 lg:px-40 py-8">
-        <div className="flex justify-center items-center gap-3  flex-col">
+        <div className="flex justify-center items-center gap-3 py-3 flex-col">
           <h3 className="font-bold text-4xl uppercase tracking-widest">
             SignUp
           </h3>
@@ -20,17 +20,19 @@ const SignUp = () => {
           <InputText
             placeholder={"Enter Your Email Address"}
             label={"Email Address"}
-            className={" lg:!w-96 capitalize"}
+            className={" lg:!w-96 "}
           />{" "}
           <InputText
             placeholder={"Enter Your Phone Number"}
             label={" phone number"}
-            className={" lg:!w-96 capitalize"}
+            className={" lg:!w-96"}
+            type={"number"}
           />{" "}
           <InputText
             placeholder={"Enter Password"}
             className={"lg:!w-96"}
             label={"Password"}
+            type={"password"}
           />
           <Button
             className={

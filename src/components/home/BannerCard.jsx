@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../Button";
+import { useNavigate } from "react-router-dom";
 
 const BannerCard = ({
   title,
@@ -9,7 +10,9 @@ const BannerCard = ({
   swap,
   heading,
   heading2,
+  onClick
 }) => {
+  
   return (
     <>
       {heading && (
@@ -31,7 +34,9 @@ const BannerCard = ({
               </h3>
               <p className="text-primary-100 ">{desc}</p>
 
-              <Button bg={"none"}>{button}</Button>
+              <Button onClick={onClick} bg={"none"}>
+                {button}
+              </Button>
             </div>
           </>
         ) : (
@@ -45,7 +50,9 @@ const BannerCard = ({
               </h3>
               <p className="text-primary-100 ">{desc}</p>
 
-              <Button bg={"none"}>{button}</Button>
+              <Button onClick={onClick} bg={"none"}>
+                {button}
+              </Button>
             </div>
 
             <img

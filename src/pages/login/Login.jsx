@@ -21,6 +21,7 @@ const Login = () => {
           <InputText
             placeholder={"Enter Password"}
             className={"lg:!w-96"}
+            type={'password'}
             label={"Password"}
           />
           <Button

@@ -2,6 +2,7 @@ import React from "react";
 import InputText from "../InputText";
 import Button from "../Button";
 import { FaArrowRight } from "react-icons/fa";
+import InputTextArea from "../inputField/InputTextArea";
 
 const ContactForm = () => {
   const inputField = [
@@ -14,20 +15,14 @@ const ContactForm = () => {
     <div className="lg:px-64 px-3 pb-14 ">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {inputField.map((input) => (
-          <InputText  label={input.label} placeholder={input.placeHodler} />
+          <InputText label={input.label} placeholder={input.placeHodler} />
         ))}
       </div>
       <div className="grid grid-cols-1">
-        <div>
-          <label className="block text-primary-100 text-sm font-bold mb-2">
-            Message
-          </label>
-          <textarea
-            className=" border-2 border-primary-100  w-full h-32 py-4 px-3 text-primary-100 leading-tight placeholder:items-start focus:outline-none focus:shadow-outline"
-            type="text"
-            placeholder="Type your message here..."
-          />
-        </div>
+        <InputTextArea
+          label={"Message"}
+          placeholder={"Type your message here..."}
+        />
       </div>
       <div className="flex items-center pt-5 justify-center">
         <Button
