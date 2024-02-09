@@ -1,9 +1,5 @@
 import React from "react";
-import Carousel from "../../components/productDetail/Carousel";
 
-import logo5 from "../../assets/contact/youtube.png";
-import ProductDetail from "../../components/productDetail/ProductDetail";
-import BestSellers from "../../components/home/BestSellers";
 import image11 from "../../assets/NewArrival/image1.png";
 import image22 from "../../assets/NewArrival/image2.png";
 import image33 from "../../assets/NewArrival/image3.png";
@@ -13,7 +9,7 @@ import image2 from "../../assets/ProductDetail/image2.png";
 import image3 from "../../assets/ProductDetail/image3.png";
 import image4 from "../../assets/ProductDetail/image4.png";
 import image5 from "../../assets/ProductDetail/image5.png";
-
+import { BestSellers, Carousel, ProductDetail } from "../../components";
 
 const ProductDetails = () => {
   const data = [
@@ -24,7 +20,7 @@ const ProductDetails = () => {
     { image: image5 },
   ];
 
-    const data1 = [
+  const data1 = [
     {
       img: image11,
       title: "Small Ecru Ceramic Compote",
@@ -60,7 +56,7 @@ const ProductDetails = () => {
           <ProductDetail />
         </div>
       </div>
-      <div className="">
+      <div>
         <BestSellers data={data1} title={"Similar Items"} />
       </div>
     </div>

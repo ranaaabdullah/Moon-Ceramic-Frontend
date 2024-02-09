@@ -1,8 +1,8 @@
 import React from "react";
-import InputText from "../../components/InputText";
 import loginImage from "../../assets/login.png";
-import Button from "../../components/Button";
 import { FaArrowRight } from "react-icons/fa6";
+import Button from "../../components/Button";
+import { InputText } from "../../components";
 
 const Login = () => {
   return (
@@ -21,7 +21,7 @@ const Login = () => {
           <InputText
             placeholder={"Enter Password"}
             className={"lg:!w-96"}
-            type={'password'}
+            type={"password"}
             label={"Password"}
           />
           <Button

@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import React from "react";
-import { Children } from "react";
 
 const Button = ({ children, className, text, bg, border, borderWhite ,onClick}) => {
   return (

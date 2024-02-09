@@ -1,13 +1,10 @@
 import React from "react";
-import Head from "../../components/about/Head";
-import AboutCard from "../../components/about/AboutCard";
 import image1 from "../../assets/about/banner1.png";
 import image2 from "../../assets/about/banner2.png";
 import image3 from "../../assets/about/banner3.png";
-import CardWork from "../../components/about/CardWork";
-import TeamCard from "../../components/about/TeamCard";
-import SectionTeam from "../../components/about/SectionTeam";
-import EmailCard from "../../components/home/EmailCard";
+
+import { AboutCard, CardWork, EmailCard, Head, SectionTeam } from "../../components";
+
 
 const About = () => {
   return (

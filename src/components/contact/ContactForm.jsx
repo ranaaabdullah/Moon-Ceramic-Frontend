@@ -1,5 +1,5 @@
 import React from "react";
-import InputText from "../InputText";
+import InputText from "../inputField/InputText";
 import Button from "../Button";
 import { FaArrowRight } from "react-icons/fa";
 import InputTextArea from "../inputField/InputTextArea";
@@ -18,7 +18,7 @@ const ContactForm = () => {
           <InputText label={input.label} placeholder={input.placeHodler} />
         ))}
       </div>
-      <div className="grid grid-cols-1">
+      <div className="grid pt-4 grid-cols-1">
         <InputTextArea
           label={"Message"}
           placeholder={"Type your message here..."}

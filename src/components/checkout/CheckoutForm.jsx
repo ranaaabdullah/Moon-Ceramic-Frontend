@@ -1,5 +1,5 @@
 import React from "react";
-import InputText from "../../components/InputText";
+import InputText from "../inputField/InputText";
 import InputSelect from "../../components/inputField/InputSelect";
 import InputTextArea from "../../components/inputField/InputTextArea";
 

@@ -1,7 +1,6 @@
 import React from "react";
-import BannerContact from "../../components/contact/BannerContact";
-import GetInTouch from "../../components/contact/GetInTouch";
-import ContactForm from "../../components/contact/ContactForm";
+import { BannerContact, ContactForm, GetInTouch } from "../../components";
+
 
 const Contact = () => {
   return (

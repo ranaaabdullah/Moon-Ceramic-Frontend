@@ -1,10 +1,8 @@
 import React from "react";
 
-import Button from "../../components/Button";
 import { IoIosArrowBack } from "react-icons/io";
 import { FaArrowRight } from "react-icons/fa";
-import CheckoutForm from "../../components/checkout/CheckoutForm";
-import BillBox from "../../components/checkout/BillBox";
+import { BillBox, Button, CheckoutForm } from "../../components";
 
 const Checkout = () => {
   return (

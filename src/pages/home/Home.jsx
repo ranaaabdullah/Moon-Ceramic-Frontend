@@ -2,11 +2,6 @@ import React from "react";
 import image from "../../assets/Image.png";
 import image2 from "../../assets/image2.png";
 import image3 from "../../assets/image3.png";
-import Header from "../../components/Header";
-import Banner from "../../components/home/Banner";
-import Section1 from "../../components/home/Section1";
-import BannerCard from "../../components/home/BannerCard";
-import BestSellers from "../../components/home/BestSellers";
 import Image1 from "../../assets/sellers/image1.png";
 import Image2 from "../../assets/sellers/image2.png";
 import Image3 from "../../assets/sellers/image3.png";
@@ -15,9 +10,11 @@ import image11 from "../../assets/NewArrival/image1.png";
 import image22 from "../../assets/NewArrival/image2.png";
 import image33 from "../../assets/NewArrival/image3.png";
 import image44 from "../../assets/NewArrival/image4.png";
-import EmailCard from "../../components/home/EmailCard";
-import Footer from "../../components/Footer";
+
+
+
 import { useNavigate } from "react-router-dom";
+import { Banner, BannerCard, BestSellers, EmailCard, Section1 } from "../../components";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -100,7 +97,6 @@ const Home = () => {
   ];
   return (
     <>
-      {/* <Header /> */}
       <Banner />
       <div className="lg:mx-40">
         <Section1 />
@@ -151,7 +147,6 @@ const Home = () => {
         </div>
         <EmailCard />
       </div>
-      {/* <Footer /> */}
     </>
   );
 };

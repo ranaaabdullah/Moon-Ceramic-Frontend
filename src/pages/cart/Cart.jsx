@@ -1,12 +1,10 @@
 import React from "react";
 
-import TableCart from "../../components/cart/TableCart";
-import InputText from "../../components/InputText";
-import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
+import { Button, InputText, TableCart } from "../../components";
 
 const Cart = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   return (
     <div className="lg:px-40 px-3 py-8 flex flex-col gap-4">
       <h2 className="font-bold text-xl">Cart (2 items) </h2>
@@ -34,7 +32,7 @@ const Cart = () => {
             <p className="px-5"> ( 2 )</p>
           </div>
           <Button
-          onClick={()=>navigate("/checkout")}
+            onClick={() => navigate("/checkout")}
             borderWhite={true}
             className={"bg-primary-100 text-white lg:!px-20 "}
           >

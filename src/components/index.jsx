@@ -1,0 +1,15 @@
+export * from "./about";
+export * from "./blog";
+export * from "./cart";
+export * from "./checkout";
+export * from "./contact";
+export * from "./home";
+export * from "./inputField";
+export * from "./productDetail";
+export * from "./shop";
+export { default as Accordion } from "./Accordion";
+export { default as Button } from "./Button";
+export { default as Card } from "./Card";
+export { default as Footer } from "./Footer";
+export { default as Header } from "./Header";
+export { default as Pagination } from "./Pagination";

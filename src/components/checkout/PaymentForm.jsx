@@ -1,5 +1,5 @@
 import React from "react";
-import InputText from "../../components/InputText";
+import InputText from "../inputField/InputText";
 import Button from "../../components/Button";
 import imgCard from "../../assets/card.png";
 

@@ -1,8 +1,10 @@
 import React from "react";
-import InputText from "../../components/InputText";
-import Button from "../../components/Button";
+
 import { FaArrowRight } from "react-icons/fa6";
 import SignUpImage from "../../assets/signUp.jpg";
+
+import Button from "../../components/Button";
+import { InputText } from "../../components";
 
 const SignUp = () => {
   return (

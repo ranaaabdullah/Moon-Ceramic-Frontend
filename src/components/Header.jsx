@@ -1,9 +1,11 @@
 import React from "react";
+
 import logo from "../assets/home/logo.png";
 import search from "../assets/home/Search.png";
 import avatar from "../assets/home/Avatar.png";
 import heart from "../assets/home/Heart.png";
 import cart from "../assets/home/cart.png";
+
 import { Link } from "react-router-dom";
 
 const Header = () => {
