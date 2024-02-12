@@ -29,7 +29,6 @@ const ContactForm = () => {
           className={
             "flex gap-1 justify-center   bg-primary-100 text-white w-full text-center"
           }
-          border={true}
         >
           send message
           <FaArrowRight />
