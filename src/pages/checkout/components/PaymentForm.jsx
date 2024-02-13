@@ -1,7 +1,7 @@
 import React from "react";
-import InputText from "../inputField/InputText";
-import Button from "../../components/Button";
-import imgCard from "../../assets/card.png";
+import InputText from "../../../components/inputField/InputText";
+import Button from "../../../components/Button";
+import imgCard from "../../../assets/card.png";
 
 const PaymentForm = () => {
   return (

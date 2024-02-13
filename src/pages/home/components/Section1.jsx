@@ -1,7 +1,7 @@
-import image from "../../assets/section1/image1.png";
-import image2 from "../../assets/section1/image2.png";
-import image3 from "../../assets/section1/image3.png";
-import image4 from "../../assets/section1/image4.png";
+import image from "../../../assets/section1/image1.png";
+import image2 from "../../../assets/section1/image2.png";
+import image3 from "../../../assets/section1/image3.png";
+import image4 from "../../../assets/section1/image4.png";
 
 const Section1 = () => {
   return (

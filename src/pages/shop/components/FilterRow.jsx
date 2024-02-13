@@ -1,5 +1,5 @@
 import React from "react";
-import CheckBox from "../../components/inputField/CheckBox";
+import CheckBox from "../../../components/inputField/CheckBox";
 
 const FilterRow = () => {
   const categoryData = [

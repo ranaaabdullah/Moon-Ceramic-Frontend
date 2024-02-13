@@ -1,8 +1,9 @@
 import React from "react";
-import BannerPic from "../../assets/home/banner.png";
-import icon from "../../assets/home/Icon.png";
-import Button from "../Button";
+import BannerPic from "../../../assets/home/banner.png";
+import icon from "../../../assets/home/Icon.png";
+
 import { useNavigate } from "react-router-dom";
+import { Button } from "../../../components";
 
 const Banner = () => {
   const navigate = useNavigate();

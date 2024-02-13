@@ -1,7 +1,7 @@
 import React from "react";
-import InputText from "../inputField/InputText";
-import InputSelect from "../../components/inputField/InputSelect";
-import InputTextArea from "../../components/inputField/InputTextArea";
+import InputText from "../../../components/inputField/InputText";
+import InputSelect from "../../../components/inputField/InputSelect";
+import InputTextArea from "../../../components/inputField/InputTextArea";
 
 const CheckoutForm = () => {
   const inputData = [

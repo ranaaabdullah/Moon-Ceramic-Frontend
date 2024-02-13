@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import Button from "../../components/Button";
+import Button from "../../../components/Button";
 import { CiHeart } from "react-icons/ci";
-import logo1 from "../../assets/ProductDetail/Facebook.png";
-import logo2 from "../../assets/ProductDetail/Twitter.png";
-import logo3 from "../../assets/ProductDetail/Instagram.png";
-import logo4 from "../../assets/ProductDetail/Linkedin.png";
-import Accordion from "../Accordion";
+
+import Accordion from "../../../components/Accordion";
+import { SocialMedia } from "../../../common";
 const ProductDetail = () => {
   const [showDetail, setShowDetail] = useState(false);
   const [showDimension, setShowDimension] = useState(false);
@@ -66,10 +64,13 @@ const ProductDetail = () => {
         <div className="flex flex-col py-4 gap-2 ">
           <p className="font-semibold ">Share this:</p>
           <div className="flex items-center  gap-4">
-            <img src={logo1} alt="" />
+            {/* <img src={logo1} alt="" />
             <img src={logo2} alt="" />
             <img src={logo3} alt="" />
-            <img src={logo4} alt="" />
+            <img src={logo4} alt="" /> */}
+            {SocialMedia.map((item, index) => {
+              return <img key={index} src={item.image} />;
+            })}
           </div>
         </div>
 

@@ -19,7 +19,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div >
+    <div>
       <Header />
       <Suspense
         fallback={
@@ -33,7 +33,10 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/productDetail/:productId" element={<ProductDetails />} />
+          <Route
+            path="/productDetail/:productId"
+            element={<ProductDetails />}
+          />
           <Route path="/shop" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />

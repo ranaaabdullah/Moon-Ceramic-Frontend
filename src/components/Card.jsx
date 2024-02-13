@@ -3,10 +3,7 @@ import Button from "./Button";
 
 const Card = ({ item, index, onClick }) => {
   return (
-    <div
-      key={index}
-      className="lg:w-64 p-2 cursor-pointer rounded-lg hover:shadow-2xl "
-    >
+    <div key={index} className="lg:w-64 p-2 cursor-pointer rounded-lg">
       <img onClick={onClick} className="rounded" src={item?.img} alt="" />
       <h2 className="font-semibold text-sm  uppercase">{item?.title}</h2>
       <h2 className="font-semibold text-sm  uppercase">{item.price}</h2>

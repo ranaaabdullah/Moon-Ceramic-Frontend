@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../../assets/about/banner4.png";
+import image from "../../../assets/about/banner4.png";
 
 const CardWork = () => {
   const data = [

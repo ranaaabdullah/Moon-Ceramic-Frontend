@@ -100,14 +100,14 @@ const Home = () => {
       <Banner />
       <div className="lg:mx-40">
         <Section1 />
-        <BannerCard
+       <BannerCard
           button={"shop now"}
           title={" Up to 40% off our Christmas collection"}
           desc={
             "Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit hasellus mollis sit aliquam sit nullam neque ultrices."
           }
           img={image}
-          onClick={() => navigate("/shop")}
+          onClick={() => navigate("/shop")} 
         />
         <BestSellers data={data} title={"best sellers"} />
         <BannerCard

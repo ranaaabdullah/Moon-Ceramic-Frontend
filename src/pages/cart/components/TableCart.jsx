@@ -1,8 +1,8 @@
 import React from "react";
 import { MdOutlineDelete } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
-import image11 from "../../assets/NewArrival/image1.png";
-import Button from "../../components/Button";
+import image11 from "../../../assets/NewArrival/image1.png";
+import Button from "../../../components/Button";
 
 const TableCart = () => {
   return (

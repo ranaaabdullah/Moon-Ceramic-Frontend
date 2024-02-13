@@ -1,17 +1,17 @@
 import React from "react";
-import BannerCard from "../home/BannerCard";
-import image1 from "../../assets/blog/image1.png";
-import image2 from "../../assets/blog/image2.png";
-import image3 from "../../assets/blog/image3.png";
-import image4 from "../../assets/blog/image4.png";
-import image5 from "../../assets/blog/image5.png";
-import image6 from "../../assets/blog/image6.png";
+import BannerCard from "../../home/components/BannerCard";
+import image1 from "../../../assets/blog/image1.png";
+import image2 from "../../../assets/blog/image2.png";
+import image3 from "../../../assets/blog/image3.png";
+import image4 from "../../../assets/blog/image4.png";
+import image5 from "../../../assets/blog/image5.png";
+import image6 from "../../../assets/blog/image6.png";
 import BlogCard from "./BlogCard";
-import SearchInput from "../inputField/SearchInput";
-import imagecard from "../../assets/blog/BannerImage.png";
+import SearchInput from "../../../components/inputField/SearchInput";
+import imagecard from "../../../assets/blog/BannerImage.png";
 import PostCard from "./PostCard";
 import TagCard from "./TagCard";
-import Pagination from "../Pagination";
+import Pagination from "../../../components/Pagination";
 
 const BlogSection = () => {
   const postCardData = [

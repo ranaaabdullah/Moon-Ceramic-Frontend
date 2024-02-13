@@ -1,8 +1,8 @@
 import React from "react";
-import image1 from "../../assets/about/person1.png";
-import image2 from "../../assets/about/person2.png";
-import image3 from "../../assets/about/person3.png";
-import image4 from "../../assets/about/person4.png";
+import image1 from "../../../assets/about/person1.png";
+import image2 from "../../../assets/about/person2.png";
+import image3 from "../../../assets/about/person3.png";
+import image4 from "../../../assets/about/person4.png";
 import TeamCard from "./TeamCard";
 
 const SectionTeam = () => {

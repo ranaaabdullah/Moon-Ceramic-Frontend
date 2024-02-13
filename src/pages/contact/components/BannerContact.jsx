@@ -1,11 +1,11 @@
 import React from "react";
-import cover from "../../assets/contact/coverContact.png";
-import logo from "../../assets/contact/logoBrown.png";
-import logo1 from "../../assets/contact/Facebook.png";
-import logo2 from "../../assets/contact/Twitter.png";
-import logo3 from "../../assets/contact/Instagram.png";
-import logo4 from "../../assets/contact/Linkedin.png";
-import logo5 from "../../assets/contact/youtube.png";
+import cover from "../../../assets/contact/coverContact.png";
+import logo from "../../../assets/contact/logoBrown.png";
+import logo1 from "../../../assets/contact/Facebook.png";
+import logo2 from "../../../assets/contact/Twitter.png";
+import logo3 from "../../../assets/contact/Instagram.png";
+import logo4 from "../../../assets/contact/Linkedin.png";
+import logo5 from "../../../assets/contact/youtube.png";
 const BannerContact = () => {
   return (
     <div>

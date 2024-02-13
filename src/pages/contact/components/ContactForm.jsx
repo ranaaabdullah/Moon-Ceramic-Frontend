@@ -1,8 +1,8 @@
 import React from "react";
-import InputText from "../inputField/InputText";
-import Button from "../Button";
+import InputText from "../../../components/inputField/InputText";
+import Button from "../../../components/Button";
 import { FaArrowRight } from "react-icons/fa";
-import InputTextArea from "../inputField/InputTextArea";
+import InputTextArea from "../../../components/inputField/InputTextArea";
 
 const ContactForm = () => {
   const inputField = [
