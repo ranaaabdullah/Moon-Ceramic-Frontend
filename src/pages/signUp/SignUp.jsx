@@ -6,16 +6,9 @@ import SignUpImage from "../../assets/signUp.jpg";
 import Button from "../../components/Button";
 import { InputText } from "../../components";
 import { useFormik } from "formik";
-import { signSchema } from "../../schemas";
+import { signupSchema } from "../../schemas";
 
 const SignUp = () => {
-  // const schema = z.object({
-  //   fname: z.string().min(2).max(30),
-  //   email: z.string().email().min(2).max(30),
-  //   number: z.string().min(2).max(30),
-  //   password: z.string().min(2).max(30),
-  // });
-
   const initialValues = {
     fname: "",
     email: "",
@@ -25,7 +18,7 @@ const SignUp = () => {
 
   const { values, errors, handleSubmit, handleChange } = useFormik({
     initialValues: initialValues,
-    validationSchema: signSchema,
+    validationSchema: signupSchema,
     onSubmit: (val, action) => {
       console.log(val);
       action.resetForm();

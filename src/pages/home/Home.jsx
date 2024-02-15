@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import image from "../../assets/Image.png";
 import image2 from "../../assets/image2.png";
 import image3 from "../../assets/image3.png";
@@ -11,12 +11,37 @@ import image22 from "../../assets/NewArrival/image2.png";
 import image33 from "../../assets/NewArrival/image3.png";
 import image44 from "../../assets/NewArrival/image4.png";
 
-
-
 import { useNavigate } from "react-router-dom";
-import { Banner, BannerCard, BestSellers, EmailCard, Section1 } from "../../components";
+import {
+  Banner,
+  BannerCard,
+  BestSellers,
+  EmailCard,
+  Section1,
+} from "../../components";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { addProducts } from "../../redux/slices/ProductSlice";
 
 const Home = () => {
+  const [products, setProducts] = useState({});
+  const dispatch = useDispatch();
+
+  const fetchProductList = async () => {
+    axios
+      .get("http://localhost:8080/api/v1/product")
+      .then((res) => {
+        setProducts(res.data);
+        dispatch(addProducts(res.data));
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    fetchProductList();
+  }, []);
+
+
   const navigate = useNavigate();
   const data = [
     {
@@ -100,16 +125,18 @@ const Home = () => {
       <Banner />
       <div className="lg:mx-40">
         <Section1 />
-       <BannerCard
+        <BannerCard
           button={"shop now"}
           title={" Up to 40% off our Christmas collection"}
           desc={
             "Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit hasellus mollis sit aliquam sit nullam neque ultrices."
           }
           img={image}
-          onClick={() => navigate("/shop")} 
+          onClick={() => navigate("/shop")}
         />
-        <BestSellers data={data} title={"best sellers"} />
+        {products.length > 0 && (
+          <BestSellers data={products} images={8} title={"best sellers"} />
+        )}
         <BannerCard
           title={" Made in viet Nam since 1450"}
           desc={
@@ -130,7 +157,13 @@ const Home = () => {
           onClick={() => navigate("/blog")}
         />
         <div>
-          <BestSellers data={data1} title={"Discover new arrivals"} />
+          {products.length > 0 && (
+            <BestSellers
+              data={products}
+              images={4}
+              title={"Discover new arrivals"}
+            />
+          )}
         </div>
         <div>
           <BannerCard

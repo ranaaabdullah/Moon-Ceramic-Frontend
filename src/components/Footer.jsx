@@ -20,7 +20,7 @@ const Footer = () => {
                   <div className="">
                     <Button
                       text={"white"}
-                      className={"flex gap-1 px-16"}
+                      className={"flex gap-1 px-4 lg:px-16"}
                       border={true}
                     >
                       Get started

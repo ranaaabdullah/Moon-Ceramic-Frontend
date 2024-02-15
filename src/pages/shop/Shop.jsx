@@ -4,8 +4,10 @@ import Image2 from "../../assets/sellers/image2.png";
 import Image3 from "../../assets/sellers/image3.png";
 import Image4 from "../../assets/sellers/image4.png";
 import { FilterRow, Pagination, ProductList } from "../../components";
+import { useSelector } from "react-redux";
 
 const Shop = () => {
+  const products = useSelector((state) => state.product.products);
   const data = [
     {
       id: 1,
@@ -86,7 +88,7 @@ const Shop = () => {
       </div>
       <div className="flex lg:flex-row flex-col   items-start gap-5 py-4">
         <FilterRow />
-        <ProductList data={data} />
+        <ProductList data={products} />
       </div>
       <div className="flex items-center justify-center lg:justify-end">
         <Pagination />

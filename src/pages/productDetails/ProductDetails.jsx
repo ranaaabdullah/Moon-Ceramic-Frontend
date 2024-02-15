@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import image11 from "../../assets/NewArrival/image1.png";
 import image22 from "../../assets/NewArrival/image2.png";
@@ -10,8 +10,12 @@ import image3 from "../../assets/ProductDetail/image3.png";
 import image4 from "../../assets/ProductDetail/image4.png";
 import image5 from "../../assets/ProductDetail/image5.png";
 import { BestSellers, Carousel, ProductDetail } from "../../components";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const ProductDetails = () => {
+  const data1 = useSelector((state) => state.product.products);
   const data = [
     { image: image1 },
     { image: image2 },
@@ -20,43 +24,36 @@ const ProductDetails = () => {
     { image: image5 },
   ];
 
-  const data1 = [
-    {
-      img: image11,
-      title: "Small Ecru Ceramic Compote",
-      price: "$49.00",
-      desc: "Lorem ipsum dolor sit amet conse bolli tetur adipiscing elit.",
-    },
-    {
-      img: image22,
-      title: "Small Ecru Ceramic Compote",
-      price: "$49.00",
-      desc: "Lorem ipsum dolor sit amet conse bolli tetur adipiscing elit.",
-    },
-    {
-      img: image33,
-      title: "Small Ecru Ceramic Compote",
-      price: "$49.00",
-      desc: "Lorem ipsum dolor sit amet conse bolli tetur adipiscing elit.",
-    },
-    {
-      img: image44,
-      title: "Small Ecru Ceramic Compote",
-      price: "$49.00",
-      desc: "Lorem ipsum dolor sit amet conse bolli tetur adipiscing elit.",
-    },
-  ];
+  const [product, setProduct] = useState({});
+
+  const productId = useParams();
+
+  const fetchSingleProduct = async () => {
+    axios
+      .get(`http://localhost:8080/api/v1/product/${productId.productId}`)
+      .then((res) => {
+        return setProduct(res.data.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    if (productId.productId) {
+      fetchSingleProduct();
+    }
+  }, [productId.productId]);
+
   return (
     <div>
       <div className="grid grid-cols-1 lg:grid-cols-2 py-4 lg:mx-28">
         <div>
-          <Carousel data={data} />
+          <Carousel data={product?.photos} />
         </div>
         <div>
-          <ProductDetail />
+          <ProductDetail data={product} />
         </div>
       </div>
-      <div>
+      <div className="mx-40">
         <BestSellers data={data1} title={"Similar Items"} />
       </div>
     </div>

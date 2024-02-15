@@ -1,18 +1,37 @@
 import React from "react";
 import Button from "./Button";
+import { TruncateText } from "../utils";
 
 const Card = ({ item, index, onClick }) => {
   return (
-    <div key={index} className="lg:w-64 p-2 cursor-pointer rounded-lg">
-      <img onClick={onClick} className="rounded" src={item?.img} alt="" />
-      <h2 className="font-semibold text-sm  uppercase">{item?.title}</h2>
-      <h2 className="font-semibold text-sm  uppercase">{item.price}</h2>
-      <p className="text-primary-100  pt-2 text-sm">{item?.desc}</p>
-      <div className="flex items-center mt-14 justify-center">
-        {/* <button className="uppercase p-2  mt-16 px-16 border-black border-2">
-        <h2 className="font-semibold text-sm">Add to card</h2>
-      </button> */}
-        <Button border={true} className={"lg:!px-[70px]"}>
+    <div key={index} className=" p-2  text-wrap   cursor-pointer rounded-lg">
+      <div className="lg:h-52 md:h-52  w-full">
+        <img
+          onClick={onClick}
+          className="rounded h-full w-full object-cover"
+          src={
+            item?.photos[0]
+              ? item?.photos[0]
+              : "https://res.cloudinary.com/dmbxqt8i3/image/upload/v1708005972/imageUpload/image1_m65imn.png"
+          }
+          alt=""
+        />
+      </div>
+      <div className="h-12 mb-4 ">
+        <h2 className="font-semibold md:text-sm text-xs lg:text-sm uppercase">
+          {TruncateText(item?.name, 30)}
+        </h2>
+      </div>
+      <h2 className="font-semibold md:text-sm text-xs lg:text-sm  uppercase">
+        ${item.price}.00
+      </h2>
+      <div className="h-12 mb-7 overflow-hidden">
+        <p className="text-primary-100   pt-2 md:text-sm text-xs lg:text-sm">
+          {TruncateText(item?.description, 60)}
+        </p>
+      </div>
+      <div className="flex items-center  justify-center">
+        <Button border={true} className={" lg:text-base text-sm w-full   "}>
           <h2 className="font-semibold text-sm">Add to card</h2>
         </Button>
       </div>

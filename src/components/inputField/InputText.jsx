@@ -11,7 +11,6 @@ const InputText = ({
   error,
   ...rest
 }) => {
-  // console.log({ rest });
   return (
     <div>
       <div>

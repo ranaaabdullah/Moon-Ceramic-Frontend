@@ -13,7 +13,9 @@ const EmailCard = () => {
         type="text"
         placeholder="Enter your email address"
       />
-      <Button border={true}>sign up</Button>
+      <Button className={"px-5"} border={true}>
+        sign up
+      </Button>
     </div>
   );
 };
