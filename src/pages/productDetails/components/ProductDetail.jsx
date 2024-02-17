@@ -6,11 +6,33 @@ import Accordion from "../../../components/Accordion";
 import { SocialMedia } from "../../../common";
 
 import { ApplyDiscount } from "../../../utils";
-const ProductDetail = ({ data }) => {
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../redux/slices/CartSlice";
+import { useNavigate } from "react-router-dom";
+const ProductDetail = ({ data, color, setColor, exist }) => {
+  console.log(exist);
+  const dispath = useDispatch();
+  const navigate = useNavigate();
   const [showDetail, setShowDetail] = useState(false);
   const [showDimension, setShowDimension] = useState(false);
   const [showReview, setshowReview] = useState(false);
 
+  const [quantity, setQuantity] = useState(1);
+  const handleAdd = (product) => {
+    dispath(
+      addToCart({
+        id: product.id,
+        name: product.name,
+        color: color,
+        price: product.price,
+        quantity: quantity,
+        totalPrice: product.price * quantity,
+        img: product?.photos[0],
+      })
+    );
+
+    setQuantity(1);
+  };
   return (
     <div>
       <div className="p-2 lg:px-10 px-3 flex flex-col gap-4 ">
@@ -20,7 +42,11 @@ const ProductDetail = ({ data }) => {
         <div className="flex items-center gap-5 ">
           <p>({data.numReviews} Reviews)</p>
           <p className="">
-            Stock: <span className="text-brown-200"> In stock</span>
+            Stock:{" "}
+            <span className="text-brown-200">
+              {" "}
+              {data.countInStock > 0 ? "In stock" : "Out of Stock"}
+            </span>
           </p>
         </div>
         <div className="text-2xl flex items-center gap-2">
@@ -32,32 +58,59 @@ const ProductDetail = ({ data }) => {
             {" "}
             <div className="flex  gap-3">
               {data?.color?.map((item) => {
-                return <div className={`w-4 h-4 `} style={{backgroundColor:item}} />;
+                return (
+                  <div
+                    onClick={() => {
+                      setColor(item);
+                    }}
+                    className={`w-4 h-4 `}
+                    style={{ backgroundColor: item }}
+                  />
+                );
               })}
             </div>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row items-center gap-4">
-          <div className="flex items-center gap-2 border-2 border-primary-100">
-            <Button>-</Button>
-            <p>1</p>
-            <Button>+</Button>
-          </div>
-          <div>
+        <div className="flex  lg:flex-row items-start lg:items-center gap-4">
+          <div className="flex items-center gap-2 border-2   border-primary-100">
             <Button
-              className={
-                "flex gap-1 justify-center lg:!px-28    bg-primary-100 text-white  text-center"
+              onClick={() =>
+                setQuantity((prevQuantity) =>
+                  prevQuantity > 1 ? prevQuantity - 1 : 1
+                )
               }
+              disable={quantity > 1 ? false : true}
+              className={"lg:px-5 md:px-8 !py-1.5 px-3"}
+            >
+              -
+            </Button>
+            <p>{quantity}</p>
+            <Button
+              onClick={() => setQuantity(quantity + 1)}
+              className={"lg:px-5 md:px-8   !py-1.5  px-3"}
+            >
+              +
+            </Button>
+          </div>
+          <div className="">
+            <Button
+              disable={exist}
+              onClick={() => handleAdd(data)}
+              className={"bg-primary-100 text-white px-8  lg:px-28 text-center"}
             >
               Add to cart
             </Button>
           </div>
         </div>
-        <div className="flex items-center lg:justify-start justify-center gap-2">
-          <Button className={"lg:!px-40"} border={true}>
+        <div className="flex items-start lg:justify-start justify-center gap-2">
+          <Button
+            onClick={() => navigate("/cart")}
+            className={"lg:!px-40"}
+            border={true}
+          >
             Buy now
           </Button>
-          <Button border={true} className={"!py-2"}>
+          <Button border={true} className={"!py-2 px-5"}>
             <CiHeart size={24} />
           </Button>
         </div>

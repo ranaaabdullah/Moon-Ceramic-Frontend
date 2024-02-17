@@ -16,6 +16,9 @@ import axios from "axios";
 
 const ProductDetails = () => {
   const data1 = useSelector((state) => state.product.products);
+  const stateCart = useSelector((state) => state.cart.cart);
+  console.log("🚀 ~ ProductDetails ~ stateCart:", stateCart);
+
   const data = [
     { image: image1 },
     { image: image2 },
@@ -25,24 +28,28 @@ const ProductDetails = () => {
   ];
 
   const [product, setProduct] = useState({});
+  const [color, setColor] = useState("");
+  const [cartAdded, setCartAdded] = useState(false);
 
-  const productId = useParams();
+  const { productId } = useParams();
 
   const fetchSingleProduct = async () => {
     axios
-      .get(`http://localhost:8080/api/v1/product/${productId.productId}`)
+      .get(`http://localhost:8080/api/v1/product/${productId}`)
       .then((res) => {
-        return setProduct(res.data.data);
+        setProduct(res.data.data);
+        setColor(res?.data?.data?.color[0]);
       })
       .catch((err) => console.log(err));
   };
+  const exist = stateCart?.find((product) => product.id === productId);
 
+  console.log(exist);
   useEffect(() => {
-    if (productId.productId) {
+    if (productId) {
       fetchSingleProduct();
     }
-  }, [productId.productId]);
-
+  }, [productId]);
   return (
     <div>
       <div className="grid grid-cols-1 lg:grid-cols-2 py-4 lg:mx-28">
@@ -50,7 +57,14 @@ const ProductDetails = () => {
           <Carousel data={product?.photos} />
         </div>
         <div>
-          <ProductDetail data={product} />
+          <ProductDetail
+            setCartAdded={setCartAdded}
+            color={color}
+            setColor={setColor}
+            cartAdded={cartAdded}
+            data={product}
+            exist={exist ? true : false}
+          />
         </div>
       </div>
       <div className="mx-40">

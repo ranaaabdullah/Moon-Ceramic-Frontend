@@ -4,10 +4,13 @@ import { TruncateText } from "../utils";
 
 const Card = ({ item, index, onClick }) => {
   return (
-    <div key={index} className=" p-2  text-wrap   cursor-pointer rounded-lg">
+    <div
+      onClick={onClick}
+      key={index}
+      className=" p-2  text-wrap   cursor-pointer rounded-lg"
+    >
       <div className="lg:h-52 md:h-52  w-full">
         <img
-          onClick={onClick}
           className="rounded h-full w-full object-cover"
           src={
             item?.photos[0]

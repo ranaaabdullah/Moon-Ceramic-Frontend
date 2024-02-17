@@ -2,13 +2,16 @@ import React from "react";
 
 import { useNavigate } from "react-router-dom";
 import { Button, InputText, TableCart } from "../../components";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
+  const cart = useSelector((state) => state.cart);
+  console.log({ cart });
   const navigate = useNavigate();
   return (
     <div className="lg:px-40 px-3 py-8 flex flex-col gap-4">
       <h2 className="font-bold text-xl">Cart (2 items) </h2>
-      <TableCart />
+      <TableCart data={cart?.cart} />
       <div className="flex items-center lg:flex-row flex-col  gap-2 justify-between">
         <div className="flex flex-col lg:flex-row  items-center gap-2">
           <InputText placeholder={"Coupon code"} />
@@ -25,11 +28,11 @@ const Cart = () => {
           <h2 className="text-xl font-semibold">Cart Totals</h2>
           <div className="flex justify-between   lg:gap-56">
             <p>Subtotal</p>
-            <p>$ 2,000.00</p>
+            <p>$ {cart.totalPrice}.00</p>
           </div>
           <div className="flex justify-between lg:gap-56">
             <p>Cart Items</p>
-            <p className="px-5"> ( 2 )</p>
+            <p className="px-5"> ( {cart.cart.length} )</p>
           </div>
           <Button
             onClick={() => navigate("/checkout")}
