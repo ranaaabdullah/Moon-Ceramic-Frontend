@@ -11,7 +11,6 @@ import {
 import { useDispatch } from "react-redux";
 
 const TableCart = ({ data }) => {
-  console.log({ data });
   const dispatch = useDispatch();
   return (
     <div>
@@ -76,13 +75,22 @@ const TableCart = ({ data }) => {
                       <div className="flex items-center justify-center   gap-2 border-2 border-primary-100">
                         <Button
                           onClick={() => {
-                            dispatch(
-                              lessQuantityAndPrice({
-                                quantiy: 1,
-                                price: item.price,
-                                id: item.id,
-                              })
-                            );
+                            if (item.quantity > 1) {
+                              dispatch(
+                                lessQuantityAndPrice({
+                                  quantiy: 1,
+                                  price: item.price,
+                                  id: item.id,
+                                })
+                              );
+                            } else {
+                              dispatch(
+                                removeFromCart({
+                                  id: item.id,
+                                  totalPrice: item.totalPrice,
+                                })
+                              );
+                            }
                           }}
                           className={"pe-2"}
                         >
@@ -92,13 +100,14 @@ const TableCart = ({ data }) => {
                         <Button
                           className={"ps-2"}
                           onClick={() => {
-                            dispatch(
-                              AddQuantityAndPrice({
-                                quantiy: 1,
-                                price: item.price,
-                                id: item.id,
-                              })
-                            );
+                            if (item)
+                              dispatch(
+                                AddQuantityAndPrice({
+                                  quantiy: 1,
+                                  price: item.price,
+                                  id: item.id,
+                                })
+                              );
                           }}
                         >
                           +

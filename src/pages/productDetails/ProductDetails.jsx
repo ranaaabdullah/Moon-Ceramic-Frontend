@@ -17,7 +17,6 @@ import axios from "axios";
 const ProductDetails = () => {
   const data1 = useSelector((state) => state.product.products);
   const stateCart = useSelector((state) => state.cart.cart);
-  console.log("🚀 ~ ProductDetails ~ stateCart:", stateCart);
 
   const data = [
     { image: image1 },
@@ -44,7 +43,6 @@ const ProductDetails = () => {
   };
   const exist = stateCart?.find((product) => product.id === productId);
 
-  console.log(exist);
   useEffect(() => {
     if (productId) {
       fetchSingleProduct();

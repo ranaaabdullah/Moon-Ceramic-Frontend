@@ -25,6 +25,7 @@ const SignUp = () => {
     },
   });
 
+  
   console.log(errors);
   return (
     <div>

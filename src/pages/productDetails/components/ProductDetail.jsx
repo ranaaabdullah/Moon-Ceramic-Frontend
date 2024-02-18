@@ -10,7 +10,6 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../../redux/slices/CartSlice";
 import { useNavigate } from "react-router-dom";
 const ProductDetail = ({ data, color, setColor, exist }) => {
-  console.log(exist);
   const dispath = useDispatch();
   const navigate = useNavigate();
   const [showDetail, setShowDetail] = useState(false);
@@ -19,19 +18,22 @@ const ProductDetail = ({ data, color, setColor, exist }) => {
 
   const [quantity, setQuantity] = useState(1);
   const handleAdd = (product) => {
-    dispath(
-      addToCart({
-        id: product.id,
-        name: product.name,
-        color: color,
-        price: product.price,
-        quantity: quantity,
-        totalPrice: product.price * quantity,
-        img: product?.photos[0],
-      })
-    );
+    if (product.countInStock !== 0) {
+      dispath(
+        addToCart({
+          id: product.id,
+          name: product.name,
+          color: color,
+          price: product.price,
+          quantity: quantity,
+          totalPrice: product.price * quantity,
+          img: product?.photos[0],
+          count: product.countInStock,
+        })
+      );
 
-    setQuantity(1);
+      setQuantity(1);
+    }
   };
   return (
     <div>

@@ -1,7 +1,9 @@
 import React from "react";
 import PaymentForm from "./PaymentForm";
+import { useDispatch, useSelector } from "react-redux";
 
 const BillBox = () => {
+  const cartData = useSelector((state) => state.cart);
   return (
     <div>
       {" "}
@@ -11,21 +13,21 @@ const BillBox = () => {
           <h2 className="text-xl font-semibold">Subtotal</h2>
         </div>
         <div className="pt-8 flex flex-col gap-2 ">
-          <div className="flex items-center  justify-between ">
-            <p className="lg:text-base text-sm">
-              Porcelain Dinner Plate (27cm)
-            </p>
-            <p>$59.00</p>
-          </div>{" "}
-          <div className="flex items-center  justify-between ">
-            <p className="lg:text-base text-sm">Ophelia Matte Natural Vase</p>
-            <p>$168.00</p>
-          </div>
+          {cartData.cart?.map((item) => {
+            return (
+              <div className="flex items-center  justify-between ">
+                <p className="lg:text-base text-sm">
+                  {item.name} ({item.quantity})
+                </p>
+                <p>${item.totalPrice}.00</p>
+              </div>
+            );
+          })}
         </div>
         <div className="pt-8 flex flex-col  py-6 border-b border-primary-300  gap-2 ">
           <div className="flex items-center font-semibold  justify-between ">
             <p className="">Subtotal</p>
-            <p>$59.00</p>
+            <p>${cartData.totalPrice}.00</p>
           </div>{" "}
           <div className="flex items-center font-semibold  justify-between ">
             <p className="">Shipping</p>
@@ -35,7 +37,7 @@ const BillBox = () => {
         <div>
           <div className="flex items-center  pt-5  text-xl font-semibold  justify-between ">
             <p className="">Total</p>
-            <p>$500.00</p>
+            <p>${cartData.totalPrice + 15}.00</p>
           </div>
         </div>
 

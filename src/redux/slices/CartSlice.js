@@ -4,19 +4,16 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState: {
     cart: [],
-    quantity: 0,
     totalPrice: 0,
   },
   reducers: {
     addToCart(state, action) {
       const product = action.payload;
-      console.log({ product });
       try {
         const exist = state.cart.find((item) => item.id === product.id);
         if (exist) {
           exist.quantity++;
           exist.totalPrice += product.totalPrice;
-          state.quantity++;
           state.totalPrice += product.totalPrice;
         } else {
           state.cart.push({
@@ -27,8 +24,8 @@ export const cartSlice = createSlice({
             totalPrice: product.totalPrice,
             name: product.name,
             color: product.color,
+            countInStock: product.count,
           });
-          state.quantity = state.quantity + product.quantity;
           state.totalPrice += product.totalPrice;
         }
       } catch (err) {
@@ -37,7 +34,6 @@ export const cartSlice = createSlice({
     },
     AddQuantityAndPrice(state, action) {
       const { quantity, price, id } = action.payload;
-      console.log(action.payload);
       const updatedData = state.cart.map((item) => {
         if (item.id == id) {
           return {
@@ -53,8 +49,7 @@ export const cartSlice = createSlice({
     },
     lessQuantityAndPrice(state, action) {
       const { quantity, price, id } = action.payload;
-      console.log(action.payload);
-      const updatedData = state.cart.map((item) => {
+        const updatedData = state.cart.map((item) => {
         if (item.id == id) {
           return {
             ...item,

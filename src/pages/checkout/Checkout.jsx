@@ -20,7 +20,6 @@ const Checkout = () => {
               className={
                 "flex gap-2 justify-center lg:!px-14 py-3  bg-primary-100 text-white  text-center"
               }
-              border={true}
             >
               Continue to shipping
               <FaArrowRight />

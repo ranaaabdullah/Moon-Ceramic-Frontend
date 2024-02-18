@@ -1,6 +1,6 @@
 import React from 'react'
 
-const InputTextArea = ({label,placeholder}) => {
+const InputTextArea = ({label,placeholder,...rest}) => {
   return (
     <div>
       {" "}
@@ -12,6 +12,7 @@ const InputTextArea = ({label,placeholder}) => {
           className=" border-2 border-primary-100  w-full h-32 py-4 px-3 text-primary-100 leading-tight placeholder:items-start focus:outline-none focus:shadow-outline"
           type="text"
           placeholder={placeholder}
+          {...rest}
         />
       </div>
     </div>
