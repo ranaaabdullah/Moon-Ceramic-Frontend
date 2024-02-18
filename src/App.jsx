@@ -19,6 +19,7 @@ import Footer from "./components/Footer";
 import { useSelector } from "react-redux";
 
 function App() {
+  const user = useSelector((state) => state.user);
   const cart = useSelector((state) => state.cart);
   console.log({ cart });
   const Products = useSelector((state) => state.product);
