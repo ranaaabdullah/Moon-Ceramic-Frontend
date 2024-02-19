@@ -36,10 +36,10 @@ const SignUp = () => {
           </h3>
           <form onSubmit={handleSubmit}>
             <InputText
-              name={"fname"}
               placeholder={"Enter Your name "}
               label={"full name"}
               className={" lg:!w-96 capitalize"}
+              name={"fname"}
               value={values.fname}
               onChange={handleChange}
               error={errors.fname}

@@ -2,7 +2,7 @@ import React from "react";
 
 import { IoIosArrowBack } from "react-icons/io";
 import { FaArrowRight } from "react-icons/fa";
-import { BillBox, Button, CheckoutForm } from "../../components";
+import { BillBox, Button, FormCheckout } from "../../components";
 
 const Checkout = () => {
   return (
@@ -10,7 +10,7 @@ const Checkout = () => {
       <div className=" flex lg:flex-row flex-col gap-14">
         <div className="flex-col flex lg:gap-8 gap-4 ">
           <h2 className="text-xl font-semibold">Billing Details</h2>
-          <CheckoutForm />
+          <FormCheckout />
           <div className="flex lg:flex-row flex-col items-center lg:justify-between">
             <Button className={"flex items-center gap-4"}>
               <IoIosArrowBack />

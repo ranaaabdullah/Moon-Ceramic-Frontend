@@ -13,60 +13,40 @@ import { BestSellers, Carousel, ProductDetail } from "../../components";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import URL from "../../config/url";
+import useProductDataById from "../../hooks/useProductDataById";
 
 const ProductDetails = () => {
   const data1 = useSelector((state) => state.product.products);
   const stateCart = useSelector((state) => state.cart.cart);
 
-  const data = [
-    { image: image1 },
-    { image: image2 },
-    { image: image3 },
-    { image: image4 },
-    { image: image5 },
-  ];
-
-  const [product, setProduct] = useState({});
   const [color, setColor] = useState("");
   const [cartAdded, setCartAdded] = useState(false);
 
   const { productId } = useParams();
+  const { data } = useProductDataById(productId);
 
-  const fetchSingleProduct = async () => {
-    axios
-      .get(`http://localhost:8080/api/v1/product/${productId}`)
-      .then((res) => {
-        setProduct(res.data.data);
-        setColor(res?.data?.data?.color[0]);
-      })
-      .catch((err) => console.log(err));
-  };
   const exist = stateCart?.find((product) => product.id === productId);
 
-  useEffect(() => {
-    if (productId) {
-      fetchSingleProduct();
-    }
-  }, [productId]);
   return (
     <div>
       <div className="grid grid-cols-1 lg:grid-cols-2 py-4 lg:mx-28">
+        <div>{data?.data && <Carousel data={data?.data?.photos} />}</div>
         <div>
-          <Carousel data={product?.photos} />
-        </div>
-        <div>
-          <ProductDetail
-            setCartAdded={setCartAdded}
-            color={color}
-            setColor={setColor}
-            cartAdded={cartAdded}
-            data={product}
-            exist={exist ? true : false}
-          />
+          {data?.data && (
+            <ProductDetail
+              setCartAdded={setCartAdded}
+              color={color}
+              setColor={setColor}
+              cartAdded={cartAdded}
+              data={data?.data}
+              exist={exist ? true : false}
+            />
+          )}
         </div>
       </div>
       <div className="mx-40">
-        <BestSellers data={data1} title={"Similar Items"} />
+        <BestSellers data={data1} images={4} title={"Similar Items"} />
       </div>
     </div>
   );
