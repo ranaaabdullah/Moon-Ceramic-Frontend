@@ -40,7 +40,7 @@ const LoginPage = () => {
     dispath(
       LoginUser({ user: response.data.data, token: response.data.token })
     );
-    // navigate("/");
+    navigate("/");
   };
 
   return (
