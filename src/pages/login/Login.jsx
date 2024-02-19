@@ -8,10 +8,10 @@ import { useFormik } from "formik";
 import { useMutation } from "@tanstack/react-query";
 import network from "../../config/network";
 import URL from "../../config/url";
-import { useToast } from "../../hooks/useToast";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { LoginUser } from "../../redux/slices/AuthSlice";
+import { useToast } from "../../hooks";
 
 const LoginPage = () => {
   const { showToast } = useToast();

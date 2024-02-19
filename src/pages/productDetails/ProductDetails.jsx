@@ -1,30 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 
-import image11 from "../../assets/NewArrival/image1.png";
-import image22 from "../../assets/NewArrival/image2.png";
-import image33 from "../../assets/NewArrival/image3.png";
-import image44 from "../../assets/NewArrival/image4.png";
-import image1 from "../../assets/ProductDetail/image1.png";
-import image2 from "../../assets/ProductDetail/image2.png";
-import image3 from "../../assets/ProductDetail/image3.png";
-import image4 from "../../assets/ProductDetail/image4.png";
-import image5 from "../../assets/ProductDetail/image5.png";
 import { BestSellers, Carousel, ProductDetail } from "../../components";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import axios from "axios";
-import URL from "../../config/url";
-import useProductDataById from "../../hooks/useProductDataById";
+
+import { useProductDataById } from "../../hooks";
 
 const ProductDetails = () => {
+  const { productId } = useParams();
+  const { data } = useProductDataById(productId);
+
   const data1 = useSelector((state) => state.product.products);
   const stateCart = useSelector((state) => state.cart.cart);
 
   const [color, setColor] = useState("");
   const [cartAdded, setCartAdded] = useState(false);
-
-  const { productId } = useParams();
-  const { data } = useProductDataById(productId);
 
   const exist = stateCart?.find((product) => product.id === productId);
 

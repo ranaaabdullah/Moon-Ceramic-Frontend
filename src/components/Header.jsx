@@ -7,6 +7,7 @@ import heart from "../assets/home/Heart.png";
 import cart from "../assets/home/cart.png";
 
 import { Link } from "react-router-dom";
+import UserAvatar from "./UserAvatar";
 
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -64,14 +65,18 @@ const Header = () => {
           </Link>
           <div className="flex items-center lg:gap-4   lg:order-2">
             {icons.map((item) => {
-              return (
-                <Link
-                  to={item.href}
-                  className={`${!item.visible ? "hidden" : "block"} lg:block`}
-                >
-                  <img src={item.img} alt=""></img>
-                </Link>
-              );
+              if (item.key === "avatar") {
+                return <UserAvatar />;
+              } else {
+                return (
+                  <Link
+                    to={item.href}
+                    className={`${!item.visible ? "hidden" : "block"} lg:block`}
+                  >
+                    <img src={item.img} className="w-5 h-5 mr-1" alt=""></img>
+                  </Link>
+                );
+              }
             })}
 
             <button

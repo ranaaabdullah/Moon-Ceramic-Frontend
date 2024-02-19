@@ -5,5 +5,5 @@ export const TruncateText = (text, maxLength) => {
 export const ApplyDiscount = (price) => {
   const discount = 0.3; // 30% discount
   const discountedPrice = price * (1 - discount);
-  return discountedPrice;
+  return discountedPrice.toFixed(2);
 };

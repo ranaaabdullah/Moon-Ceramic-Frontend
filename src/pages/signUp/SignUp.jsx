@@ -7,10 +7,16 @@ import Button from "../../components/Button";
 import { InputText } from "../../components";
 import { useFormik } from "formik";
 import { signupSchema } from "../../schemas";
+import URL from "../../config/url";
+import network from "../../config/network";
+import { useToast } from "../../hooks";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const { showToast } = useToast();
+  const navigate = useNavigate();
   const initialValues = {
-    fname: "",
+    name: "",
     email: "",
     number: "",
     password: "",
@@ -20,13 +26,20 @@ const SignUp = () => {
     initialValues: initialValues,
     validationSchema: signupSchema,
     onSubmit: (val, action) => {
-      console.log(val);
-      action.resetForm();
+      handleSignUp(val);
     },
   });
 
-  
+  const handleSignUp = async (data) => {
+    const response = await network.post(URL.Register, data);
+    if (!response.ok) return showToast(response.data.message, "error");
+    showToast("User Registered Successfully", "success");
+    console.log(response);
+    navigate("/login");
+  };
+
   console.log(errors);
+
   return (
     <div>
       <div className="grid grid-cols-1  lg:grid-cols-2 lg:px-40 py-8">
@@ -34,55 +47,53 @@ const SignUp = () => {
           <h3 className="font-bold text-4xl uppercase tracking-widest">
             SignUp
           </h3>
-          <form onSubmit={handleSubmit}>
-            <InputText
-              placeholder={"Enter Your name "}
-              label={"full name"}
-              className={" lg:!w-96 capitalize"}
-              name={"fname"}
-              value={values.fname}
-              onChange={handleChange}
-              error={errors.fname}
-            />{" "}
-            <InputText
-              name={"email"}
-              placeholder={"Enter Your Email Address"}
-              label={"Email Address"}
-              className={" lg:!w-96 "}
-              value={values.email}
-              onChange={handleChange}
-              error={errors.email}
-            />{" "}
-            <InputText
-              name={"number"}
-              placeholder={"Enter Your Phone Number"}
-              label={" phone number"}
-              className={" lg:!w-96"}
-              type={"number"}
-              value={values.number}
-              onChange={handleChange}
-              error={errors.number}
-            />{" "}
-            <InputText
-              name={"password"}
-              placeholder={"Enter Password"}
-              className={"lg:!w-96"}
-              label={"Password"}
-              type={"password"}
-              value={values.password}
-              error={errors.password}
-              onChange={handleChange}
-            />
-            <Button
-              type={"submit"}
-              className={
-                "flex gap-1 justify-center mt-4  bg-primary-100 text-white  lg:!px-[148px] text-center"
-              }
-            >
-              SignUp
-              <FaArrowRight />
-            </Button>
-          </form>
+          <InputText
+            placeholder={"Enter Your name "}
+            label={"full name"}
+            className={" lg:!w-96 capitalize"}
+            name={"name"}
+            value={values.name}
+            onChange={handleChange}
+            error={errors.name}
+          />{" "}
+          <InputText
+            name={"email"}
+            placeholder={"Enter Your Email Address"}
+            label={"Email Address"}
+            className={" lg:!w-96 "}
+            value={values.email}
+            onChange={handleChange}
+            error={errors.email}
+          />{" "}
+          <InputText
+            name={"number"}
+            placeholder={"Enter Your Phone Number"}
+            label={" phone number"}
+            className={" lg:!w-96"}
+            type={"number"}
+            value={values.number}
+            onChange={handleChange}
+            error={errors.number}
+          />{" "}
+          <InputText
+            name={"password"}
+            placeholder={"Enter Password"}
+            className={"lg:!w-96"}
+            label={"Password"}
+            type={"password"}
+            value={values.password}
+            error={errors.password}
+            onChange={handleChange}
+          />
+          <Button
+            onClick={handleSubmit}
+            className={
+              "flex gap-1 justify-center mt-4  bg-primary-100 text-white px-20 lg:!px-[148px] text-center"
+            }
+          >
+            SignUp
+            <FaArrowRight />
+          </Button>
         </div>
         <div>
           <img src={SignUpImage} className="rounded" alt="" />

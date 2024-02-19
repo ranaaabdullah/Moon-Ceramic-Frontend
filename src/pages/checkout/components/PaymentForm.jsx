@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
-import "../style/Card.css";
+
 
 import InputText from "../../../components/inputField/InputText";
 import Button from "../../../components/Button";

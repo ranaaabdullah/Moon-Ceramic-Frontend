@@ -19,13 +19,10 @@ import {
   EmailCard,
   Section1,
 } from "../../components";
-import axios from "axios";
+
 import { useDispatch, useSelector } from "react-redux";
 import { addProducts } from "../../redux/slices/ProductSlice";
-import { useQuery } from "@tanstack/react-query";
-import network from "../../config/network";
-import URL from "../../config/url";
-import useProductData from "../../hooks/useProductData";
+import { useProductData } from "../../hooks";
 
 const Home = () => {
   const dispatch = useDispatch();

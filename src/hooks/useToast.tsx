@@ -1,8 +1,8 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export function useToast() {
-  const showToast = (message:any, type:any) => {
+const useToast = () => {
+  const showToast = (message: any, type: any) => {
     if (type === "success") {
       toast.success(message, {
         position: "top-right",
@@ -27,4 +27,6 @@ export function useToast() {
   return {
     showToast,
   };
-}
+};
+
+export default useToast;
