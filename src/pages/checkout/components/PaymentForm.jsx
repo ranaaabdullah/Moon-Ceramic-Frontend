@@ -1,85 +1,92 @@
-import React, { useState, useEffect } from "react";
-import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
+import React, { useMemo } from "react";
+import {
+  useStripe,
+  useElements,
+  CardNumberElement,
+  CardCvcElement,
+  CardExpiryElement,
+} from "@stripe/react-stripe-js";
+import { Button } from "../../../components";
 
-
-
-import InputText from "../../../components/inputField/InputText";
-import Button from "../../../components/Button";
-import imgCard from "../../../assets/card.png";
-import CheckoutForm from "./CheckoutForm";
-
-const PaymentForm = () => {
-  const stripePromise = loadStripe(
-    "pk_test_51NzIqNBrJDSCC8vY3LvdBzXSfHNHNRhmitjgLKbKVZjtJ2XGv3VgRoxkJxaxAJFCeAS12BFxxJjgPpPTJGICoYU20066LIu3ts"
+const useOptions = () => {
+  const submitButton = document.getElementById('ab')
+  console.log({submitButton})
+  const options = useMemo(
+    () => ({
+      style: {
+        base: {
+          fontSize: 14,
+          color: "#fff",
+          letterSpacing: "0.025em",
+          fontFamily: "Inter",
+          "::placeholder": {
+            color: "#A6A6A8",
+          },
+        },
+        invalid: {
+          color: "#9e2146",
+        },
+        placeholder: "Custom PlaceHolder",
+      },
+    }),
+    []
   );
 
-  const [clientSecret, setClientSecret] = useState("");
+  return options;
+};
 
-  useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
-    fetch("/create-payment-intent", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
-    })
-      .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
-  }, []);
+const PaymentForm = () => {
+  const stripe = useStripe();
+  const elements = useElements();
+  const options = useOptions();
 
-  const appearance = {
-    theme: "stripe",
-  };
-  const options = {
-    clientSecret,
-    appearance,
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!stripe || !elements) {
+      // Stripe.js has not loaded yet. Make sure to disable
+      // form submission until Stripe.js has loaded.
+      return;
+    }
+
+    const payload = await stripe.createPaymentMethod({
+      type: "card",
+      card: elements.getElement(CardNumberElement),
+    });
+    console.log("[PaymentMethod]", payload);
   };
 
   return (
-    <div>
-      <div className="flex-col flex gap-8 bg-primary-100 px-5 py-8 mt-5">
-        {/* <h2 className="text-white text-lg">Payment</h2>
-        <div className="flex items-center pb-6  border-b border-white   justify-between">
-          <p className="text-white">Credit Card</p>
-          <img src={imgCard} alt="" />
-        </div> */}
-        <div></div>
-        {/* <div className="grid grid-cols-1 gap-4">
-          <InputText
-            placeholder={"Card Number "}
-            className={"bg-primary-100 text-white border-white border"}
-          />
-          <InputText
-            placeholder={"Name on card "}
-            className={"bg-primary-100 text-white border-white  border"}
+    <form onSubmit={handleSubmit}>
+      <div className="border border-primary-200 p-4">
+        <CardNumberElement
+          options={{ ...options, placeholder: "Card Number" }}
+        />
+      </div>
+      <div className="grid grid-cols-2 gap-2 pt-4">
+        <div className="border border-primary-200 p-4">
+          <CardExpiryElement
+            options={{ ...options, placeholder: "Expiration date  (MM/YY)" }}
           />
         </div>
-        <div className="grid grid-cols-2 gap-4">
-          <InputText
-            placeholder={"Expiration date  (MM/YY) "}
-            className={
-              "bg-primary-100 border-white  text-white placeholder:text-wrap border"
-            }
-          />
-          <InputText
-            placeholder={"Security code "}
-            className={"bg-primary-100 border-white  text-white border"}
+
+        <div className="border border-primary-200 p-4">
+          <CardCvcElement
+            options={{ ...options, placeholder: "Security code" }}
           />
         </div>
+      </div>
+      <div className="flex justify-center">
         <Button
+          onClick={handleSubmit}
           borderWhite={true}
-          text={"white"}
-          className={"lg:!px-36 !px-16 py-3"}
+          className={"mt-4 w-full text-primary-200"}
+          disabled={!stripe}
         >
           Place order
-        </Button> */}
+        </Button>
       </div>
-      {clientSecret && (
-        <Elements options={options} stripe={stripePromise}>
-          <CheckoutForm />
-        </Elements>
-      )}
-    </div>
+    </form>
   );
 };
 

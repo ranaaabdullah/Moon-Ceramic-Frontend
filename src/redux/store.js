@@ -4,12 +4,14 @@ import storage from "redux-persist/lib/storage"; // defaults to localStorage for
 import { persistReducer, persistStore } from "redux-persist";
 import { cartReducer } from "./slices/CartSlice";
 import { AuthReducer } from "./slices/AuthSlice";
+import { LoaderReducer } from "./slices/loaderSlice";
 
 // Define the reducers
 const rootReducer = combineReducers({
   product: productReducer,
   cart: cartReducer,
   auth: AuthReducer,
+  loader:LoaderReducer
   // Add other reducers as needed
 });
 

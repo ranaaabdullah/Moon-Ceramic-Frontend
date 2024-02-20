@@ -10,7 +10,7 @@ const ProductDetails = () => {
   const { productId } = useParams();
   const { data } = useProductDataById(productId);
 
-  const data1 = useSelector((state) => state.product.products);
+  const products = useSelector((state) => state.product.products);
   const stateCart = useSelector((state) => state.cart.cart);
 
   const [color, setColor] = useState("");
@@ -36,7 +36,7 @@ const ProductDetails = () => {
         </div>
       </div>
       <div className="mx-40">
-        <BestSellers data={data1} images={4} title={"Similar Items"} />
+        <BestSellers data={products} images={4} title={"Similar Items"} />
       </div>
     </div>
   );

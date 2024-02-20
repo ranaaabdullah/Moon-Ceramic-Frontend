@@ -11,9 +11,11 @@ const Button = ({
   borderWhite,
   onClick,
   disable = false,
+  id
 }) => {
   return (
     <div
+    id={id}
       type={type}
       onClick={disable ? null : onClick}
       className={clsx(

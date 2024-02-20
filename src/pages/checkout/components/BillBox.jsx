@@ -1,9 +1,24 @@
 import React from "react";
 import PaymentForm from "./PaymentForm";
 import { useDispatch, useSelector } from "react-redux";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "./PaymentForm";
+import imgCard from "../../../assets/card.png";
 
 const BillBox = () => {
   const cartData = useSelector((state) => state.cart);
+
+  // const stripePromise = loadStripe(
+  //   "pk_test_51NzIqNBrJDSCC8vY3LvdBzXSfHNHNRhmitjgLKbKVZjtJ2XGv3VgRoxkJxaxAJFCeAS12BFxxJjgPpPTJGICoYU20066LIu3ts"
+  // );
+
+  const stripePromise = loadStripe(import.meta.env.VITE_PUBLIC_STRIPE_KEY);
+
+  const options = {
+    // passing the client secret obtained from the server
+    clientSecret: import.meta.env.VITE_SECRET_KEY,
+  };
   return (
     <div>
       {" "}
@@ -41,7 +56,19 @@ const BillBox = () => {
           </div>
         </div>
 
-        <PaymentForm />
+        {/* <PaymentForm /> */}
+        <div className=" bg-primary-100 mt-4 p-5">
+          <div>
+            <h2 className="text-white font-semibold  text-lg">Payment</h2>
+            <div className="flex items-center pb-6 pt-3 border-b border-white   justify-between">
+              <p className="text-white">Credit Card</p>
+              <img src={imgCard} alt="" />
+            </div>
+          </div>
+          <Elements stripe={stripePromise}>
+            <PaymentForm />
+          </Elements>
+        </div>
       </div>
     </div>
   );

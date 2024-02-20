@@ -78,10 +78,14 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { useSelector } from "react-redux";
 import { PrivateRoutes } from "./utils";
+import { Loader } from "./components";
 
 function App() {
+  const loader = useSelector((state) => state.loader.loader);
+  console.log({ loader });
   return (
     <div>
+      <Loader visible={loader} />
       <Header />
       <Suspense
         fallback={

@@ -6,7 +6,7 @@ import { useFormik } from "formik";
 import { checkOutSchema } from "../../../schemas";
 import { Button } from "../../../components";
 
-const FormCheckOut = () => {
+const FormCheckOut = ({setCheckOutData}) => {
   const inputData = [
     { label: "First Name *", placeholder: "Samatha Clarken", key: "fname" },
     { label: "Last Name *", placeholder: "Clarken", key: "lname" },
@@ -49,7 +49,7 @@ const FormCheckOut = () => {
     initialValues: initialValues,
     validationSchema: checkOutSchema,
     onSubmit: (val, action) => {
-      console.log(val);
+      setCheckOutData(val);
       // action.resetForm();
     },
   });
@@ -104,7 +104,7 @@ const FormCheckOut = () => {
             </>
           ))}
         </div>
-        <Button type={"submit"} onClick={handleSubmit}>
+        <Button className={'hidden'} id={'ab'} type={"submit"} onClick={handleSubmit}>
           send
         </Button>
       </form>

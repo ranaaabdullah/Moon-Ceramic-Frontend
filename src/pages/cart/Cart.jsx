@@ -14,8 +14,8 @@ const Cart = () => {
       <div className="flex items-center lg:flex-row flex-col  gap-2 justify-between">
         <div className="flex flex-col lg:flex-row  items-center gap-2">
           <InputText placeholder={"Coupon code"} />
-          <Button className={"bg-primary-100 text-white !py-4"}>
-            Apply Coupon
+          <Button className={"bg-primary-100 text-white lg:px-4 !py-4"}>
+            Apply Coupon   
           </Button>
         </div>
         <Button className={"bg-primary-100 text-white lg:!px-14 !py-4"}>
