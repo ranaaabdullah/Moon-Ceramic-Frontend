@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import Image1 from "../../assets/sellers/image1.png";
-import Image2 from "../../assets/sellers/image2.png";
-import Image3 from "../../assets/sellers/image3.png";
-import Image4 from "../../assets/sellers/image4.png";
+
 import { FilterRow, Pagination, ProductList } from "../../components";
-import { useSelector } from "react-redux";
+
 import useProductData from "../../hooks/useProductData";
 
 const Shop = () => {

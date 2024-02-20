@@ -38,7 +38,7 @@ const SignUp = () => {
     navigate("/login");
   };
 
-  console.log(errors);
+  
 
   return (
     <div>

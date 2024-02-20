@@ -1,58 +1,19 @@
-import React from "react";
+import React, { useRef } from "react";
 import InputText from "../../../components/inputField/InputText";
 import InputSelect from "../../../components/inputField/InputSelect";
 import InputTextArea from "../../../components/inputField/InputTextArea";
-import { useFormik } from "formik";
-import { checkOutSchema } from "../../../schemas";
+
 import { Button } from "../../../components";
 
-const FormCheckOut = ({setCheckOutData}) => {
-  const inputData = [
-    { label: "First Name *", placeholder: "Samatha Clarken", key: "fname" },
-    { label: "Last Name *", placeholder: "Clarken", key: "lname" },
-    { label: "Company", placeholder: "Moon", key: "company" },
-    {
-      label: "Country / Region *",
-      placeholder: "United states",
-      key: "country",
-    },
-    { label: "Street address *", placeholder: "Address", key: "address" },
-    { label: "Town / City *", placeholder: "City", key: "city" },
-    { label: "State *", placeholder: "State", key: "state" },
-    { label: "ZIP Code", placeholder: "ZIP Code", key: "zipCode" },
-    { label: "Phone *", placeholder: "(123) 456 - 7890", key: "phone" },
-    { label: "Email", placeholder: "example@youremail.com", key: "email" },
-    {
-      label: "Order notes",
-      placeholder: "Type your message here...",
-      key: "Onote",
-    },
-  ];
+const FormCheckOut = ({
+  inputData,
+  handleSubmit,
+  handleChange,
+  values,
+  errors,
+}) => {
   const countries = ["Pakistan", "Canada", "France", "Germany"];
   const states = ["Punjab", "Sindh", "KPK", "Balochistan"];
-
-  const initialValues = {
-    fname: "",
-    lname: "",
-    company: "",
-    country: "",
-    address: "",
-    city: "",
-    state: "",
-    zipCode: "",
-    phone: "",
-    email: "",
-    Onote: "",
-  };
-
-  const { values, errors, handleSubmit, handleChange } = useFormik({
-    initialValues: initialValues,
-    validationSchema: checkOutSchema,
-    onSubmit: (val, action) => {
-      setCheckOutData(val);
-      // action.resetForm();
-    },
-  });
 
   return (
     <div>
@@ -104,9 +65,14 @@ const FormCheckOut = ({setCheckOutData}) => {
             </>
           ))}
         </div>
-        <Button className={'hidden'} id={'ab'} type={"submit"} onClick={handleSubmit}>
+        {/* <Button
+          // className={"hidden"}
+
+          type={"submit"}
+         
+        >
           send
-        </Button>
+        </Button> */}
       </form>
     </div>
   );

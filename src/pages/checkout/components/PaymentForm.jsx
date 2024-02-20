@@ -9,8 +9,7 @@ import {
 import { Button } from "../../../components";
 
 const useOptions = () => {
-  const submitButton = document.getElementById('ab')
-  console.log({submitButton})
+  console.log();
   const options = useMemo(
     () => ({
       style: {
@@ -35,12 +34,13 @@ const useOptions = () => {
   return options;
 };
 
-const PaymentForm = () => {
+const PaymentForm = ({ handleSubmit1, createOrder }) => {
   const stripe = useStripe();
   const elements = useElements();
   const options = useOptions();
 
   const handleSubmit = async (event) => {
+    handleSubmit1();
     event.preventDefault();
 
     if (!stripe || !elements) {
@@ -54,13 +54,14 @@ const PaymentForm = () => {
       card: elements.getElement(CardNumberElement),
     });
     console.log("[PaymentMethod]", payload);
+    createOrder(payload);
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="border border-primary-200 p-4">
         <CardNumberElement
-          options={{ ...options, placeholder: "Card Number" }}
+          options={{ ...options, placeholder: "Card number" }}
         />
       </div>
       <div className="grid grid-cols-2 gap-2 pt-4">

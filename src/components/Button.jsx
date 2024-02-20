@@ -11,11 +11,13 @@ const Button = ({
   borderWhite,
   onClick,
   disable = false,
-  id
+  id,
+  ref,
 }) => {
   return (
     <div
-    id={id}
+      id={id}
+      ref={ref}
       type={type}
       onClick={disable ? null : onClick}
       className={clsx(

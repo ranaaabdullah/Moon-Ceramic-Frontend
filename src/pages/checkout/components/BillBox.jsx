@@ -6,7 +6,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./PaymentForm";
 import imgCard from "../../../assets/card.png";
 
-const BillBox = () => {
+const BillBox = ({ handleSubmit,createOrder }) => {
   const cartData = useSelector((state) => state.cart);
 
   // const stripePromise = loadStripe(
@@ -66,7 +66,7 @@ const BillBox = () => {
             </div>
           </div>
           <Elements stripe={stripePromise}>
-            <PaymentForm />
+            <PaymentForm createOrder={createOrder} handleSubmit1={handleSubmit} />
           </Elements>
         </div>
       </div>
