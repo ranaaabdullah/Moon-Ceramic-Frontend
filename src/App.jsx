@@ -20,7 +20,10 @@ import { Loader } from "./components";
 
 function App() {
   const loader = useSelector((state) => state.loader.loader);
+  const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state?.auth?.user?.user);
 
+  // console.log({ cart });
   return (
     <div>
       <Loader visible={loader} />

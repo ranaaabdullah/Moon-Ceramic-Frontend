@@ -2,22 +2,39 @@ import React, { useRef, useState } from "react";
 
 import { IoIosArrowBack } from "react-icons/io";
 import { FaArrowRight } from "react-icons/fa";
-import { BillBox, Button, FormCheckout } from "../../components";
 import { useNavigate } from "react-router-dom";
+import { BillBox, Button, FormCheckout } from "../../components";
 
 import { useFormik } from "formik";
 import { checkOutSchema } from "../../schemas";
+import {
+  CardNumberElement,
+  useElements,
+  useStripe,
+} from "@stripe/react-stripe-js";
+
+import { useCreateOrder, useToast } from "../../hooks";
+import { useDispatch, useSelector } from "react-redux";
+import { emptyCart } from "../../redux/slices/CartSlice";
+
 const Checkout = () => {
+  //Hooks
   const navigate = useNavigate();
+  const dispatch=useDispatch()
+  const stripe = useStripe();
+  const elements = useElements();
+  const { mutate, isPending, data } = useCreateOrder();
+  const { showToast } = useToast();
 
-  const [data, setData] = useState({});
+  const user = useSelector((state) => state?.auth?.user?.user);
+  const cart = useSelector((state) => state.cart.cart);
 
-  // const handleSubmitData=(val)=>{
-
-  //   setData(prev=>({...prev, ...val}))
-
-  // }
-
+  //Functions
+  if (data?.data?.success) {
+    navigate("/shop");
+    showToast("Order Created Succesfully", "success");
+    dispatch(emptyCart())
+  }
   const inputData = [
     { label: "First Name *", placeholder: "Samatha Clarken", key: "fname" },
     { label: "Last Name *", placeholder: "Clarken", key: "lname" },
@@ -53,23 +70,51 @@ const Checkout = () => {
     email: "",
     Onote: "",
   };
-
+  const onSubmit = async (val) => {
+    const data = modifyData(val);
+    if (!stripe || !elements) {
+      return;
+    }
+    const payload = await stripe.createPaymentMethod({
+      type: "card",
+      card: elements.getElement(CardNumberElement),
+    });
+    const NewPayload = { ...data, paymentID: payload?.paymentMethod.id };
+    mutate(NewPayload);
+  };
   const { values, errors, handleSubmit, handleChange } = useFormik({
     initialValues: initialValues,
     validationSchema: checkOutSchema,
-    onSubmit: (val, action) => {
-      console.log(val, "VALUESS");
-      setData(val);
-
-      // action.resetForm();
-    },
+    onSubmit,
   });
 
+  const modifyData = (payData) => {
+    const updatedCart = cart?.map((item) => {
+      let cart;
+      return (cart = {
+        product: item.id,
+        quantity: item.quantity,
+        color: item.color,
+      });
+    });
 
+    let payLoad = {
+      fname: payData?.fname,
+      lname: payData?.lname,
+      company: payData?.company,
+      state: payData?.state,
+      email: user?.email,
+      city: payData?.city,
+      Onote: payData?.Onote,
+      zip: payData?.zipCode,
+      country: payData?.country,
+      phone: user?.number,
+      streetAddress: payData?.address,
+      orderItems: updatedCart,
+    };
 
-  const createOrder = (data)=>{
-    console.log(data)
-  }
+    return payLoad;
+  };
   return (
     <div className="lg:px-40 py-14">
       <div className=" flex lg:flex-row flex-col gap-14">
@@ -98,7 +143,7 @@ const Checkout = () => {
             </Button>
           </div>
         </div>
-        <BillBox  createOrder={createOrder} handleSubmit={handleSubmit} />
+        <BillBox loading={isPending} handleSubmit={handleSubmit} />
       </div>
     </div>
   );

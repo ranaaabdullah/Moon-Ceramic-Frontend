@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import React from "react";
+import ButtonLoader from "./ButtonLoader";
 
 const Button = ({
   children,
@@ -13,6 +14,7 @@ const Button = ({
   disable = false,
   id,
   ref,
+  loader
 }) => {
   return (
     <div
@@ -33,7 +35,9 @@ const Button = ({
         className
       )}
     >
-      {children}
+      {
+        loader?<ButtonLoader/>:children 
+      }
     </div>
   );
 };

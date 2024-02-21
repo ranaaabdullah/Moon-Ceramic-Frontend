@@ -10,7 +10,6 @@ const UserAvatar = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const user = useSelector((state) => state?.auth?.user?.user);
-  console.log({ user });
   return (
     <div>
       <div>

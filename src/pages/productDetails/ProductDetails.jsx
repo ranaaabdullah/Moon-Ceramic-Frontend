@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 
 import { BestSellers, Carousel, ProductDetail } from "../../components";
 import { useSelector } from "react-redux";
@@ -12,6 +12,8 @@ const ProductDetails = () => {
 
   const products = useSelector((state) => state.product.products);
   const stateCart = useSelector((state) => state.cart.cart);
+
+
 
   const [color, setColor] = useState("");
   const [cartAdded, setCartAdded] = useState(false);

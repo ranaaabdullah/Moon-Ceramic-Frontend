@@ -1,9 +1,9 @@
 const URL = {
-  getAllProducts: (page) => `/product/?page=${page}&limit=6`,
+  getAllProducts: (page) => `/product/?page=${page}&limit=10`,
   getSingleProduct: (id) => `/product/${id}`,
-  Login: "auth/login",
-  Register: "auth/register",
-  createOrder: "/product",
+  Login: "/login",
+  Register: "/register",
+  createOrder: "/order",
 };
 
 export default URL;

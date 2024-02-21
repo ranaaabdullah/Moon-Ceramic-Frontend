@@ -18,7 +18,6 @@ const useProductData = (page) => {
     return response;
   };
 
-  console.log({ isLoading });
 
   if (isLoading) {
     dispatch(setLoader(isLoading));

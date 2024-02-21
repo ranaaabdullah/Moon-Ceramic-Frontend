@@ -34,31 +34,11 @@ const useOptions = () => {
   return options;
 };
 
-const PaymentForm = ({ handleSubmit1, createOrder }) => {
-  const stripe = useStripe();
-  const elements = useElements();
+const PaymentForm = ({ handleSubmit1 ,loading}) => {
   const options = useOptions();
 
-  const handleSubmit = async (event) => {
-    handleSubmit1();
-    event.preventDefault();
-
-    if (!stripe || !elements) {
-      // Stripe.js has not loaded yet. Make sure to disable
-      // form submission until Stripe.js has loaded.
-      return;
-    }
-
-    const payload = await stripe.createPaymentMethod({
-      type: "card",
-      card: elements.getElement(CardNumberElement),
-    });
-    console.log("[PaymentMethod]", payload);
-    createOrder(payload);
-  };
-
   return (
-    <form onSubmit={handleSubmit}>
+    <form >
       <div className="border border-primary-200 p-4">
         <CardNumberElement
           options={{ ...options, placeholder: "Card number" }}
@@ -79,10 +59,10 @@ const PaymentForm = ({ handleSubmit1, createOrder }) => {
       </div>
       <div className="flex justify-center">
         <Button
-          onClick={handleSubmit}
+        loader={loading}
+          onClick={handleSubmit1}
           borderWhite={true}
           className={"mt-4 w-full text-primary-200"}
-          disabled={!stripe}
         >
           Place order
         </Button>

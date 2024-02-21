@@ -70,6 +70,7 @@ const Header = () => {
               } else {
                 return (
                   <Link
+                    key={item.href}
                     to={item.href}
                     className={`${!item.visible ? "hidden" : "block"} lg:block`}
                   >
@@ -123,7 +124,7 @@ const Header = () => {
             <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
               {links.map((item) => {
                 return (
-                  <li>
+                  <li key={item.href}>
                     <a
                       href={item.href}
                       className="block py-2 pr-4 pl-3 rounded bg-primary-700 lg:bg-transparent text-primary-100 lg:p-0 "

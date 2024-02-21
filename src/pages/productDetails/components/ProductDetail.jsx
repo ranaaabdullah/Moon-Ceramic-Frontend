@@ -1,22 +1,29 @@
-import React, { useEffect, useState } from "react";
-import Button from "../../../components/Button";
+import React, { useState } from "react";
 import { CiHeart } from "react-icons/ci";
 
+import Button from "../../../components/Button";
 import Accordion from "../../../components/Accordion";
-import { SocialMedia } from "../../../common";
 
+import { SocialMedia } from "../../../common";
 import { ApplyDiscount } from "../../../utils";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../redux/slices/CartSlice";
 import { useNavigate } from "react-router-dom";
+import { useToast } from "../../../hooks";
 const ProductDetail = ({ data, color, setColor, exist }) => {
+  //Hooks
+  const { showToast } = useToast();
   const dispath = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector((state) => state?.auth?.user?.user);
+
+  //States
   const [showDetail, setShowDetail] = useState(false);
   const [showDimension, setShowDimension] = useState(false);
   const [showReview, setshowReview] = useState(false);
-
   const [quantity, setQuantity] = useState(1);
+
+  //Functions
   const handleAdd = (product) => {
     if (product.countInStock !== 0) {
       dispath(
@@ -31,10 +38,10 @@ const ProductDetail = ({ data, color, setColor, exist }) => {
           count: product.countInStock,
         })
       );
-
       setQuantity(1);
     }
   };
+
   return (
     <div>
       <div className="p-2 lg:px-10 px-3 flex flex-col gap-4 ">
@@ -97,7 +104,11 @@ const ProductDetail = ({ data, color, setColor, exist }) => {
           <div className="">
             <Button
               disable={exist}
-              onClick={() => handleAdd(data)}
+              onClick={() => {
+                user
+                  ? handleAdd(data)
+                  : showToast("Please Login First", "error");
+              }}
               className={"bg-primary-100 text-white px-8  lg:px-28 text-center"}
             >
               Add to cart
@@ -106,7 +117,12 @@ const ProductDetail = ({ data, color, setColor, exist }) => {
         </div>
         <div className="flex items-start lg:justify-start justify-center gap-2">
           <Button
-            onClick={() => navigate("/cart")}
+            onClick={() => {
+              if (!user) {
+                navigate("/login"), showToast("Please Login First", "error");
+              }
+              navigate("/cart");
+            }}
             className={"lg:!px-40"}
             border={true}
           >
@@ -119,10 +135,6 @@ const ProductDetail = ({ data, color, setColor, exist }) => {
         <div className="flex flex-col py-4 gap-2 ">
           <p className="font-semibold ">Share this:</p>
           <div className="flex items-center  gap-4">
-            {/* <img src={logo1} alt="" />
-            <img src={logo2} alt="" />
-            <img src={logo3} alt="" />
-            <img src={logo4} alt="" /> */}
             {SocialMedia.map((item, index) => {
               return <img key={index} src={item.image} />;
             })}
