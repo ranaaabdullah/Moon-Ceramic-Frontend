@@ -13,8 +13,11 @@ import { useToast } from "../../hooks";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  //Hooks
   const { showToast } = useToast();
   const navigate = useNavigate();
+  
+  //Functions
   const initialValues = {
     name: "",
     email: "",

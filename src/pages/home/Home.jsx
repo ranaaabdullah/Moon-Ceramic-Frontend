@@ -10,17 +10,19 @@ import {
   BestSellers,
   EmailCard,
   Section1,
-} from "../../components";
+} from "./components";
 
 import { useDispatch } from "react-redux";
 import { addProducts } from "../../redux/slices/ProductSlice";
 import { useProductData } from "../../hooks";
 
 const Home = () => {
+  //Hooks
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { data } = useProductData();
 
+  //Functions
   dispatch(addProducts(data));
 
   return (

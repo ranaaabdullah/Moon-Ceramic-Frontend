@@ -3,8 +3,13 @@ import image1 from "../../assets/about/banner1.png";
 import image2 from "../../assets/about/banner2.png";
 import image3 from "../../assets/about/banner3.png";
 
-import { AboutCard, CardWork, EmailCard, Head, SectionTeam } from "../../components";
-
+import {
+  AboutCard,
+  CardWork,
+  Head,
+  SectionTeam,
+} from "./components";
+import { EmailCard } from "../home/components";
 
 const About = () => {
   return (

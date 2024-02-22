@@ -3,7 +3,7 @@ import React from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { BillBox, Button, FormCheckout } from "../../components";
+import { BillBox, FormCheckout } from "./components";
 
 import { useFormik } from "formik";
 import { checkOutSchema } from "../../schemas";
@@ -16,6 +16,7 @@ import {
 import { useCreateOrder, useToast } from "../../hooks";
 import { useDispatch, useSelector } from "react-redux";
 import { emptyCart } from "../../redux/slices/CartSlice";
+import { Button } from "../../components";
 
 const Checkout = () => {
   //Hooks

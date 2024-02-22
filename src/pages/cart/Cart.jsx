@@ -1,12 +1,16 @@
 import React from "react";
 
 import { useNavigate } from "react-router-dom";
-import { Button, InputText, TableCart } from "../../components";
+import { TableCart } from "./components";
 import { useSelector } from "react-redux";
+import { Button, InputText } from "../../components";
 
 const Cart = () => {
-  const cart = useSelector((state) => state.cart);
+  //Hooks
   const navigate = useNavigate();
+
+  const cart = useSelector((state) => state.cart);
+
   return (
     <div className="lg:px-40 px-3 py-8 flex flex-col gap-4">
       <h2 className="font-bold text-xl">Cart ({cart.cart.length} items) </h2>

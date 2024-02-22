@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 
-import { FilterRow, Pagination, ProductList } from "../../components";
+import { FilterRow, ProductList } from "./components";
 
 import useProductData from "../../hooks/useProductData";
+import { Pagination } from "../../components";
 
 const Shop = () => {
-  const [page, setPage] = useState(1);
+  //Hooks
   const { data } = useProductData(page);
+
+  //States
+  const [page, setPage] = useState(1);
 
   return (
     <div className="lg:px-36 py-14">

@@ -14,6 +14,7 @@ import { LoginUser } from "../../redux/slices/AuthSlice";
 import { useToast } from "../../hooks";
 
 const LoginPage = () => {
+  //Hooks
   const { showToast } = useToast();
   const dispath = useDispatch();
   const navigate = useNavigate();

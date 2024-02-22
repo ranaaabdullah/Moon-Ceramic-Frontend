@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 
-import { BestSellers, Carousel, ProductDetail } from "../../components";
+import { Carousel, ProductDetail } from "./components";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import { useProductDataById } from "../../hooks";
+import { BestSellers } from "../home/components";
 
 const ProductDetails = () => {
+  //Hooks
   const { productId } = useParams();
   const { data } = useProductDataById(productId);
 
   const products = useSelector((state) => state.product.products);
   const stateCart = useSelector((state) => state.cart.cart);
 
-
-
+  //States
   const [color, setColor] = useState("");
   const [cartAdded, setCartAdded] = useState(false);
 

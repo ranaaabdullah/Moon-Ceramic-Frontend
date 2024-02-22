@@ -11,7 +11,6 @@ const checkOutSchema = Yup.object({
   zipCode: Yup.string().min(2).max(25).required("Zipcode is required"),
   email: Yup.string().email().required("Email is required"),
   phone: Yup.string().min(2).max(15).required("Number is required"),
-  // Onote: Yup.string().min(2).max(15).required("Number is required"),
 });
 
 export default checkOutSchema;

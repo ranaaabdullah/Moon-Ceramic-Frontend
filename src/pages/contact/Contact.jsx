@@ -1,6 +1,5 @@
 import React from "react";
-import { BannerContact, ContactForm, GetInTouch } from "../../components";
-
+import { BannerContact, ContactForm, GetInTouch } from "./components";
 
 const Contact = () => {
   return (

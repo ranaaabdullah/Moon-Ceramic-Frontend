@@ -1,5 +1,5 @@
 import React from "react";
-import { BlogBanner, BlogSection } from "../../components";
+import { BlogBanner, BlogSection } from "./components";
 
 
 const Blog = () => {
