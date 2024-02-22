@@ -14,7 +14,7 @@ const Button = ({
   disable = false,
   id,
   ref,
-  loader
+  loader,
 }) => {
   return (
     <div
@@ -35,9 +35,7 @@ const Button = ({
         className
       )}
     >
-      {
-        loader?<ButtonLoader/>:children 
-      }
+      {loader ? <ButtonLoader /> : children}
     </div>
   );
 };

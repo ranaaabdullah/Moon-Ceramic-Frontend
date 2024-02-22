@@ -22,7 +22,7 @@ const Shop = () => {
         </div>
       </div>
       <div className="flex lg:flex-row flex-col   items-start gap-5 py-4">
-        <div className="hidden lg:block">
+        <div className="hidden md:hidden lg:block">
           <FilterRow />
         </div>
         <ProductList data={data} />

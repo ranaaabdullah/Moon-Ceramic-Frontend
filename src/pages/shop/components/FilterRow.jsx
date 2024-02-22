@@ -25,7 +25,7 @@ const FilterRow = () => {
   ];
   return (
     <div>
-      <div className="flex items-start flex-col lg:w-96  ">
+      <div className="flex items-start flex-col  lg:w-72  w-56  ">
         <div className=" flex flex-col gap-2 py-4 border-t lg:w-full  border-primary-500 ">
           <h2 className="font-semibold">Category</h2>
           <div className="flex flex-col gap-3">

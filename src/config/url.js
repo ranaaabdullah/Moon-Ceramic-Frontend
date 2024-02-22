@@ -1,8 +1,8 @@
 const URL = {
   getAllProducts: (page) => `/product/?page=${page}&limit=10`,
   getSingleProduct: (id) => `/product/${id}`,
-  Login: "/login",
-  Register: "/register",
+  Login: "auth/login",
+  Register: "auth/register",
   createOrder: "/order",
 };
 

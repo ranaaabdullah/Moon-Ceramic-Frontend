@@ -8,9 +8,15 @@ import cart from "../assets/home/cart.png";
 
 import { Link } from "react-router-dom";
 import UserAvatar from "./UserAvatar";
+import { useDispatch, useSelector } from "react-redux";
+import { IsOpen } from "../redux/slices/WishlistSlice";
 
 const Header = () => {
   const [show, setShow] = useState(false);
+  const dispatch=useDispatch()
+  const isOpen = useSelector((state)=>state.wish.isOpen)
+  
+
   const links = [
     {
       name: "Home",
@@ -67,6 +73,8 @@ const Header = () => {
             {icons.map((item) => {
               if (item.key === "avatar") {
                 return <UserAvatar />;
+              } else if (item.key === "heart") {
+                return <img onClick={()=>dispatch(IsOpen(!isOpen))} src={item.img} alt="" />;
               } else {
                 return (
                   <Link

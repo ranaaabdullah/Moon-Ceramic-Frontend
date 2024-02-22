@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 
 import { IoIosArrowBack } from "react-icons/io";
 import { FaArrowRight } from "react-icons/fa";
@@ -20,20 +20,22 @@ import { emptyCart } from "../../redux/slices/CartSlice";
 const Checkout = () => {
   //Hooks
   const navigate = useNavigate();
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
   const stripe = useStripe();
   const elements = useElements();
-  const { mutate, isPending, data } = useCreateOrder();
+  const { mutate, isPending, data, error } = useCreateOrder();
   const { showToast } = useToast();
 
   const user = useSelector((state) => state?.auth?.user?.user);
   const cart = useSelector((state) => state.cart.cart);
 
+  console.log(error);
+  console.log(data);
   //Functions
   if (data?.data?.success) {
     navigate("/shop");
     showToast("Order Created Succesfully", "success");
-    dispatch(emptyCart())
+    dispatch(emptyCart());
   }
   const inputData = [
     { label: "First Name *", placeholder: "Samatha Clarken", key: "fname" },
@@ -89,6 +91,7 @@ const Checkout = () => {
   });
 
   const modifyData = (payData) => {
+    console.log(payData);
     const updatedCart = cart?.map((item) => {
       let cart;
       return (cart = {
@@ -103,18 +106,19 @@ const Checkout = () => {
       lname: payData?.lname,
       company: payData?.company,
       state: payData?.state,
-      email: user?.email,
+      email: payData?.email,
       city: payData?.city,
       Onote: payData?.Onote,
       zip: payData?.zipCode,
       country: payData?.country,
-      phone: user?.number,
+      phone: payData?.phone,
       streetAddress: payData?.address,
       orderItems: updatedCart,
     };
 
     return payLoad;
   };
+
   return (
     <div className="lg:px-40 py-14">
       <div className=" flex lg:flex-row flex-col gap-14">

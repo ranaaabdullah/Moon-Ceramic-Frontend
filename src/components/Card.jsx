@@ -34,8 +34,11 @@ const Card = ({ item, index, onClick }) => {
         </p>
       </div>
       <div className="flex items-center  justify-center">
-        <Button border={true} className={" lg:text-base text-sm w-full   "}>
-          <h2 className="font-semibold text-sm">Add to card</h2>
+        <Button
+          border={true}
+          className={" lg:text-base md:text-xs text-sm w-full   "}
+        >
+          Add to cart
         </Button>
       </div>
     </div>

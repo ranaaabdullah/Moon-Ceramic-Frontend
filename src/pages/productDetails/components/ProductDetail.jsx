@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { CiHeart } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa";
 
 import Button from "../../../components/Button";
 import Accordion from "../../../components/Accordion";
@@ -8,14 +9,17 @@ import { SocialMedia } from "../../../common";
 import { ApplyDiscount } from "../../../utils";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../redux/slices/CartSlice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useToast } from "../../../hooks";
+import { AddWish } from "../../../redux/slices/WishlistSlice";
 const ProductDetail = ({ data, color, setColor, exist }) => {
   //Hooks
   const { showToast } = useToast();
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state?.auth?.user?.user);
+  const wishlist = useSelector((state) => state.wish.wishList);
+  const { productId } = useParams();
 
   //States
   const [showDetail, setShowDetail] = useState(false);
@@ -23,10 +27,12 @@ const ProductDetail = ({ data, color, setColor, exist }) => {
   const [showReview, setshowReview] = useState(false);
   const [quantity, setQuantity] = useState(1);
 
+  const isHeart = wishlist?.some((item) => item.id == productId);
+
   //Functions
   const handleAdd = (product) => {
     if (product.countInStock !== 0) {
-      dispath(
+      dispatch(
         addToCart({
           id: product.id,
           name: product.name,
@@ -128,8 +134,26 @@ const ProductDetail = ({ data, color, setColor, exist }) => {
           >
             Buy now
           </Button>
-          <Button border={true} className={"!py-2 px-5"}>
-            <CiHeart size={24} />
+          <Button
+            onClick={() => {
+              console.log(data);
+              dispatch(
+                AddWish({
+                  id: data.id,
+                  name: data.name,
+                  price: data.price,
+                  img: data?.photos[0],
+                })
+              );
+            }}
+            border={true}
+            className={"!py-2 px-5"}
+          >
+            {isHeart ? (
+              <FaHeart size={24} color=" red" />
+            ) : (
+              <CiHeart size={24} />
+            )}
           </Button>
         </div>
         <div className="flex flex-col py-4 gap-2 ">

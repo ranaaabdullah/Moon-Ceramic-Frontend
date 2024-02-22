@@ -11,6 +11,7 @@ import { ToastContainer } from "react-toastify";
 import ScrollToTop from "./utils/ScrollToTop.jsx";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import WishDrawer from "./components/WishDrawer.jsx";
 
 const queryClient = new QueryClient();
 const stripePromise = loadStripe(import.meta.env.VITE_PUBLIC_STRIPE_KEY);

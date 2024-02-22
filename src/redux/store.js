@@ -5,20 +5,22 @@ import { persistReducer, persistStore } from "redux-persist";
 import { cartReducer } from "./slices/CartSlice";
 import { AuthReducer } from "./slices/AuthSlice";
 import { LoaderReducer } from "./slices/loaderSlice";
+import { WishReducer } from "./slices/WishlistSlice";
 
 // Define the reducers
 const rootReducer = combineReducers({
   product: productReducer,
   cart: cartReducer,
   auth: AuthReducer,
-  loader:LoaderReducer
+  loader:LoaderReducer,
+  wish:WishReducer
   // Add other reducers as needed
 });
 
 const persistConfig = {
   key: "root",
   storage, // Use sessionStorage as the storage engine
-  whitelist: ["product", "cart", "auth"], // Specify which reducers to persist
+  whitelist: ["product", "cart", "auth","wish"], // Specify which reducers to persist
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

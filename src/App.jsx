@@ -17,16 +17,25 @@ import Footer from "./components/Footer";
 import { useSelector } from "react-redux";
 import { PrivateRoutes } from "./utils";
 import { Loader } from "./components";
+import WishDrawer from "./components/WishDrawer";
 
 function App() {
   const loader = useSelector((state) => state.loader.loader);
-  const cart = useSelector((state) => state.cart);
-  const user = useSelector((state) => state?.auth?.user?.user);
+  // const cart = useSelector((state) => state.cart);
+  // const user = useSelector((state) => state?.auth?.user?.user);
+  // const wishlist = useSelector((state) => state.wish);
+  // const products = useSelector((state) => state.product.products);
+  // console.log({ products });
 
   // console.log({ cart });
   return (
     <div>
+      <WishDrawer />
+      {/* <div className="z-40 fixed h-full w-80 border right-0 top-0 bg-white">
+        draaw
+      </div> */}
       <Loader visible={loader} />
+
       <Header />
       <Suspense
         fallback={
